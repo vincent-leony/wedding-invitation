@@ -1,0 +1,46 @@
+.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+    background-image: none !important;
+}
+
+@media screen and (max-height: 1024px) {
+    .e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+    .e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+        background-image: none !important;
+    }
+}
+
+@media screen and (max-height: 640px) {
+    .e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+    .e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+        background-image: none !important;
+    }
+}
+
+.perfmatters-lazy.pmloaded,
+.perfmatters-lazy.pmloaded>img,
+.perfmatters-lazy>img.pmloaded,
+.perfmatters-lazy[data-ll-status=entered] {
+    animation: 500ms pmFadeIn
+}
+
+@keyframes pmFadeIn {
+    0% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+
+body .perfmatters-lazy-css-bg:not([data-ll-status=entered]),
+body .perfmatters-lazy-css-bg:not([data-ll-status=entered]) *,
+body .perfmatters-lazy-css-bg:not([data-ll-status=entered])::before,
+body .perfmatters-lazy-css-bg:not([data-ll-status=entered])::after,
+body .perfmatters-lazy-css-bg:not([data-ll-status=entered]) *::before,
+body .perfmatters-lazy-css-bg:not([data-ll-status=entered]) *::after {
+    background-image: none !important;
+    will-change: transform;
+    transition: opacity 0.025s ease-in, transform 0.025s ease-in !important;
+}

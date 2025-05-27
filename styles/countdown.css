@@ -1,0 +1,22 @@
+.countDownTimer {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: row;
+    max-width: 100%;
+    gap: clamp(10px, 5vw, 30px);
+}
+
+.time {
+    text-align: center;
+}
+
+#days, #hours, #minutes, #seconds {
+    font-size: 30px;
+    font-weight: 100;
+    line-height: 1;
+    display: block;
+    color: #000000;
+    font-family: "Poppins", sans-serif;
+}

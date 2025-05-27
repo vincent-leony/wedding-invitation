@@ -1,0 +1,61 @@
+#preloader {
+    background-color: #000000;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    background: #000000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../fonts/poppins-regular-webfont.woff2') format('woff2'),
+        url('../fonts/poppins-regular-webfont.woff') format('woff'),
+        url('../fonts/poppins-regular-webfont.ttf') format('truetype');
+}
+
+.elementor-button {
+    cursor: pointer;
+}
+
+.elenveIcon img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    animation: fadeInOut 2s infinite;
+    scale: 1;
+}
+
+.credit-link-preload {
+    font-family: "Poppins", sans-serif;
+    text-transform: uppercase;
+    font-size: 12px;
+    position: fixed;
+    bottom: 10px;
+    color: white;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.preloaderactive {
+    display: none !important;
+}
