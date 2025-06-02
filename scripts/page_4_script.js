@@ -98,8 +98,6 @@ rspvSubmitButton.addEventListener('click', (e) => {
 
     const formContainer = document.querySelector('.attendance-confirmation-form-container');
     const description = document.querySelector('.attendance-confirmation-description');
-    const qrContainer = document.getElementById('qr-code-container');
-    const qrImage = document.getElementById('qr-code-image');
 
     // Fake API call
     axios.get('https://jsonplaceholder.typicode.com/posts/1')
@@ -114,86 +112,14 @@ rspvSubmitButton.addEventListener('click', (e) => {
                     formContainer.style.display = 'none';
                     description.style.display = 'none';
 
+                    // Show thank-you message
+                    const messageContainer = document.getElementById("confirmation-message");
+                    messageContainer.style.display = 'flex';
+                    messageContainer.classList.add('fade-in');
+
                     buttonContent.style.display = 'flex';
                     buttonSpinner.style.display = 'none';
                     document.getElementById('loading-blocker').style.display = 'none';
-
-                    const qrText = guestNameInput.value;
-                    const qrSize = 200;
-
-                    // Create a hidden temp div to generate QR
-                    const tempDiv = document.createElement("div");
-                    tempDiv.style.display = "none";
-                    document.body.appendChild(tempDiv);
-
-                    // Generate QR code
-                    new QRCode(tempDiv, {
-                        text: qrText,
-                        width: qrSize,
-                        height: qrSize,
-                        colorDark: "#000000",
-                        colorLight: "#ffffff",
-                        correctLevel: QRCode.CorrectLevel.H
-                    });
-
-                    setTimeout(() => {
-                        const qrImg = tempDiv.querySelector("img") || tempDiv.querySelector("canvas");
-
-                        const canvas = document.createElement("canvas");
-                        canvas.width = qrSize;
-                        canvas.height = qrSize;
-                        const ctx = canvas.getContext("2d");
-
-                        const img = new Image();
-                        img.crossOrigin = "anonymous"; // Important for CORS
-                        if (qrImg instanceof HTMLCanvasElement) {
-                            img.src = qrImg.toDataURL("image/png");
-                        } else if (qrImg instanceof HTMLImageElement) {
-                            img.src = qrImg.src;
-                        } else {
-                            console.error("QR code image not found.");
-                            return;
-                        }
-                        // img.src = qrImg.src;
-                        img.onload = () => {
-                            ctx.drawImage(img, 0, 0, qrSize, qrSize);
-
-                            // Draw initial instead of logo
-                            const initial = "LV"; // first letter uppercase
-                            const centerX = qrSize / 2;
-                            const centerY = qrSize / 2;
-                            const circleRadius = 30;
-                            const fontSize = 40;
-
-                            // Draw white circle background for initial
-                            ctx.fillStyle = "#ffffff";
-                            ctx.beginPath();
-                            ctx.arc(centerX, centerY, circleRadius, 0, 2 * Math.PI);
-                            ctx.fill();
-
-                            // Draw initial letter
-                            const verticalNudge = 5;
-                            ctx.fillStyle = "#D3AF37";
-                            ctx.font = `bold ${fontSize}px Arial, sans-serif`;
-                            ctx.textAlign = "center";
-                            ctx.textBaseline = "middle";
-                            ctx.fillText(initial, centerX, centerY + verticalNudge);
-
-                            // Set QR image to <img id="qr-code-image">
-                            const qrImage = document.getElementById("qr-code-image");
-                            qrImage.src = canvas.toDataURL("image/png");
-
-                            // Show the QR container
-                            const qrContainer = document.getElementById("qr-code-container");
-                            qrContainer.style.display = 'block';
-                            qrContainer.classList.add('fade-in');
-                            const qrMessage = qrContainer.querySelector('.qr-code-message');
-                            qrMessage.classList.add('fade-in-message');
-
-                            // Cleanup
-                            document.body.removeChild(tempDiv);
-                        };
-                    }, 500);
                 }, 2000); // 1s fade duration
             } else {
                 buttonContent.style.display = 'flex';

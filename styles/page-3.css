@@ -55,7 +55,6 @@
 .the-vows-image {
     aspect-ratio: 1/1;
     width: 100%;
-    max-width: 300px;
     border-radius: 170px 0 0 0;
     overflow: hidden;
     background-image: url("../assets/gi.jpg");
@@ -68,7 +67,6 @@
 .the-reception-image {
     aspect-ratio: 1/1;
     width: 100%;
-    max-width: 300px;
     border-radius: 0 170px 0 0;
     overflow: hidden;
     background-image: url("../assets/bowling.jpg");
