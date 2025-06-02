@@ -1,0 +1,73 @@
+@font-face {
+    font-family: 'Gotham';
+    font-style: normal;
+    font-weight: normal;
+    font-display: auto;
+    src: url('../fonts/Gotham.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Luxio';
+    font-style: normal;
+    font-weight: normal;
+    font-display: auto;
+    src: url('../fonts/Luxio.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: normal;
+    font-display: auto;
+    src: url('../fonts/poppins-regular-webfont.woff2') format('woff2'),
+        url('../fonts/poppins-regular-webfont.woff') format('woff'),
+        url('../fonts/poppins-regular-webfont.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Aleo';
+    font-style: normal;
+    font-weight: normal;
+    font-display: auto;
+    src: url('../fonts/Aleo-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Lilo';
+    font-style: normal;
+    font-weight: normal;
+    font-display: auto;
+    src: url('../fonts/Lilo-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'My Trip';
+    font-style: normal;
+    font-weight: normal;
+    font-display: auto;
+    src: url('../fonts/My-Trip.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Cursed Queen';
+    font-style: normal;
+    font-weight: normal;
+    font-display: auto;
+    src: url('../fonts/Cursed-Queen.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Nathaline';
+    font-style: normal;
+    font-weight: normal;
+    font-display: auto;
+    src: url('../fonts/Nathaline.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Eqt';
+    font-style: normal;
+    font-weight: normal;
+    font-display: auto;
+    src: url('../fonts/Eqt.ttf') format('truetype');
+}

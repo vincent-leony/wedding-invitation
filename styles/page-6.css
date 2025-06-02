@@ -1,0 +1,155 @@
+.page-6 {
+    background: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    padding-top: 50px;
+}
+
+.page-6-title {
+    text-align: center;
+    font-family: "Gotham", sans-serif;
+    font-size: 35px;
+    font-weight: bold;
+    word-spacing: 5px;
+    color: white;
+    opacity: 0;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.page-6-header {
+    padding: 20px 20px 0px 20px;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 14px;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    opacity: 0;
+}
+
+.page-6-iban-container {
+    margin: 20px;
+    padding: 20px;
+    background-color: #222;
+    border: 1px solid #ccc;
+    max-width: 400px;
+    text-align: center;
+    transform: scale(0);
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+}
+
+#iban {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    color: #FFFFFF;
+    z-index: 10;
+    position: relative;
+    font-family: "Poppins", sans-serif;
+}
+
+.iban-copy-button {
+    font-family: "Poppins", sans-serif;
+    font-weight: normal;
+    font-size: 12px;
+    fill: white;
+    color: white;
+    background-color: black;
+    border-radius: 5px 5px 5px 5px;
+    padding: 5px 20px 5px 20px;
+    width: max-content;
+    display: flex;
+    cursor: pointer;
+    border: solid 2px white;
+    margin-top: 10px;
+    z-index: 10;
+    position: relative;
+    align-self: center;
+}
+
+.page-6-content-gift-delivery-title {
+    text-align: center;
+    font-family: "Eqt", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 3.4px;
+    color: #FFFFFF;
+    margin-top: 5px;
+    opacity: 0;
+}
+
+.page-6-content-gift-delivery-address {
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 17px;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    margin-top: 20px;
+    opacity: 0;
+}
+
+.page-6-content-gift-delivery-receiver-name {
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 17px;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    margin-top: 15px;
+    opacity: 0;
+}
+
+.page-6-content-gift-delivery-receiver-number {
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 17px;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    margin-top: 15px;
+    opacity: 0;
+}
+
+.page-6-content-gift-delivery-confirm-button {
+    background-color: #FFFFFF;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    fill: #000000;
+    color: #000000;
+    border-radius: 5px 5px 5px 5px;
+    padding: 5px 20px 5px 20px;
+    margin-top: 15px;
+    opacity: 0;
+}
+
+.page-6-content-gift-delivery-confirm-button:hover,
+.page-6-content-gift-delivery-confirm-button:focus {
+    background-color: #D0C6C4;
+    color: #333425;
+    border-color: #333425;
+}
+
+.page-6-title.animate,
+.page-6-header.animate,
+.page-6-iban-container.animate,
+.page-6-content-gift-delivery-title.animate,
+.page-6-content-gift-delivery-address.animate,
+.page-6-content-gift-delivery-receiver-name.animate,
+.page-6-content-gift-delivery-receiver-number.animate,
+.page-6-content-gift-delivery-confirm-button.animate {
+    animation: zoomIn 1s ease-out forwards;
+}

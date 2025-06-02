@@ -1,0 +1,274 @@
+.page-5 {
+    background: #fff3e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding-top: 70px;
+}
+
+/* Wish and Pray */
+.page-5-wishes-and-prayers-section-title {
+    text-align: center;
+    font-family: "Gotham", sans-serif;
+    font-size: 35px;
+    font-weight: bold;
+    word-spacing: 5px;
+    color: #000000;
+    opacity: 0;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.wish-and-pray-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.wish-and-pray-form-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 15px;
+    border-radius: 15px;
+    background: transparent;
+}
+
+.wish-and-pray-form {
+    color: black;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    color: white;
+    padding: 15px;
+    font-size: 12px;
+    gap: 10px;
+    font-family: "Poppins", sans-serif;
+}
+
+.wish-and-pray-guest-name-input-label,
+.wish-and-pray-data-input-label {
+    font-weight: bold;
+    box-sizing: border-box;
+    display: inline-block;
+    line-height: 1;
+    vertical-align: middle;
+    color: black;
+    opacity: 0;
+}
+
+.wish-and-pray-input-field {
+    font-size: 12px;
+    width: 100%;
+    border: 1px solid #666;
+    border-radius: 3px;
+    padding: .5rem 1rem;
+    transition: all .3s;
+    opacity: 0;
+}
+
+#wish-and-pray-text-area {
+    min-height: 100px;
+    width: 100%;
+    border: 1px solid #666;
+    border-radius: 3px;
+    padding: .5rem 1rem;
+    transition: all .3s;
+}
+
+.wish-and-pray-submit-button {
+    position: relative;
+    background-color: black;
+    color: white;
+    border: none;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 0 20px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    cursor: pointer;
+    overflow: hidden;
+    opacity: 0;
+}
+
+.wish-and-pray-list-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    background: black;
+    border-radius: 15px;
+    color: white;
+    align-items: center;
+    background: transparent;
+    margin-bottom: 30px;
+    opacity: 0;
+}
+
+.wish-and-pray-heading-container {
+    padding: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    cursor: pointer;
+}
+
+.wish-and-pray-list-section-header {
+    padding-bottom: 5px;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    align-self: center;
+    text-align: center;
+    text-align: -webkit-center;
+    color: black;
+}
+
+.wish-and-pray-feedback-message {
+    font-size: 12px;
+    font-family: "Poppins", sans-serif;
+    margin-top: 5px;
+    color: red;
+    /* default color for errors */
+    min-height: 18px;
+    /* reserve space even if empty */
+    transition: all 0.3s ease;
+}
+
+#wish-and-pray-message:empty {
+    display: none;
+}
+
+.wish-and-pray-feedback-message.success {
+    color: green;
+}
+
+.wish-and-pray-submit-button.loading {
+    pointer-events: none;
+}
+
+.wish-and-pray-submit-button:disabled {
+    cursor: not-allowed;
+}
+
+.button-text {
+    display: inline-block;
+    transition: opacity 0.3s ease;
+}
+
+.wish-and-pray-loading-spinner {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid white;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    display: none;
+}
+
+/* Show spinner and hide text on loading */
+.wish-and-pray-submit-button.wish-and-pray-loading .wish-and-pray-loading-spinner {
+    display: block;
+}
+
+.wish-and-pray-submit-button.wish-and-pray-loading .button-text {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Spinner animation */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.wish-and-pray-total-data {
+    text-align: -webkit-left;
+    font-size: 10px;
+    font-weight: normal;
+    font-family: "Poppins", sans-serif;
+    width: fit-content;
+    background: #f7981c;
+    padding: 2px 10px;
+    border-radius: 5px;
+    color: white;
+}
+
+.wish-and-pray-list {
+    overflow-y: auto;
+    min-height: 60px;
+    height: 300px;
+    width: 95%;
+    box-sizing: border-box;
+}
+
+.wish-and-pray-list div {
+    padding: 10px;
+    color: black;
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.wish-and-pray-list.hidden {
+    display: none;
+}
+
+.wish-list-item {
+    opacity: 0;
+    transform: translateY(20px);
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+}
+
+.wish-list-item.animate {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.wish-and-pray-list::-webkit-scrollbar,
+textarea::-webkit-scrollbar {
+    width: 8px;
+
+}
+
+.wish-and-pray-list::-webkit-scrollbar-track,
+textarea::-webkit-scrollbar-track {
+    background: #F1F1F1;
+    border-radius: 4px;
+}
+
+.wish-and-pray-list::-webkit-scrollbar-thumb,
+textarea::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+
+.wish-and-pray-list::-webkit-scrollbar-thumb:hover,
+textarea::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* End wish and pray */
+
+.page-5-wishes-and-prayers-section-title.animate,
+.wish-and-pray-container.animate,
+.wish-and-pray-guest-name-input-label.animate,
+.wish-and-pray-input-field.animate,
+.wish-and-pray-data-input-label.animate,
+.wish-and-pray-submit-button.animate,
+.wish-and-pray-list-container.animate {
+    animation: zoomIn 1s ease-out forwards;
+}

@@ -1,0 +1,407 @@
+.page-4 {
+    background: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding-top: 70px;
+    padding-bottom: 20px;
+}
+
+.page-4-title, .page-4-journey-section-title {
+    text-align: center;
+    font-family: "Gotham", sans-serif;
+    font-size: 35px;
+    font-weight: bold;
+    word-spacing: 5px;
+    color: white;
+    opacity: 0;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.attendance-confirmation-description {
+    padding: 60px 20px 0px 20px;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 14px;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    opacity: 0;
+}
+
+/* Attendance Form */
+.attendance-confirmation-form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 15px;
+    width: 100%;
+    max-width: 100%;
+    align-self: center;
+    padding: 10px;
+    opacity: 0;
+}
+
+.attendance-confirmation-form-container label {
+    font-size: 13px;
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+
+.attendance-confirmation-form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    color: white;
+    padding: 15px;
+    font-size: 12px;
+    gap: 10px;
+    font-family: "Poppins", sans-serif;
+}
+
+.rspv-guest-name-input,
+.rspv-total-guests-input {
+    margin-top: 4px;
+    background: #ffffff;
+    color: #000;
+    margin-bottom: 10px;
+    font-size: 13px;
+    font-weight: normal;
+    font-family: "Poppins", sans-serif;
+    font-weight: normal;
+    width: 100%;
+    border: 1px solid #666;
+    border-radius: 3px;
+    padding: .5rem 1rem;
+    line-height: 1.5;
+    transition: all .3s;
+}
+
+.rspv-attendance-confirmation-selector {
+    background: #ffffff;
+    color: #000;
+    margin-bottom: 10px;
+    font-size: 13px;
+    font-weight: normal;
+    margin-top: 4px;
+    box-sizing: border-box;
+    display: block;
+    text-transform: none;
+    width: 100%;
+    border: 1px solid #666;
+    border-radius: 3px;
+    padding: .5rem 1rem;
+    transition: all .3s;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.rspv-error-message, .rspv-attendance-confirmation-error-message {
+    color: red;
+    font-size: 0.85rem;
+    display: none;
+}
+
+.rspv-total-guests-container {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    transition: max-height 0s ease, opacity 1s ease;
+}
+
+.rspv-total-guests-container.show {
+    padding-top: 8px;
+    max-height: 200px;
+    opacity: 1;
+}
+
+.rspv-button-submit {
+    font-family: "Poppins", sans-serif;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 11px;
+    fill: #000000;
+    color: #000000;
+    background-color: #FFFFFF;
+    border-radius: 5px 5px 5px 5px;
+    padding: 6px 20px 5px 20px;
+    width: max-content;
+    display: flex;
+    cursor: pointer;
+    border: solid 2px white;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    min-width: 150px;
+}
+
+.rspv-button-submit .spinner {
+    margin-left: 5px;
+}
+
+.rspv-button-submit:active,
+.rspv-button-submit:hover {
+    color: white;
+    background: black;
+}
+
+/* End Attendance Form */
+
+/* QR Code */
+#qr-code-container {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    opacity: 0;
+}
+
+.qr-code-message {
+    padding: 60px 20px 0px 20px;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    opacity: 0;
+}
+
+.fade-in-message {
+    animation: fadeInPage4 2s forwards;
+}
+
+.qr-code-image-container {
+    width: 230px;
+    background-color: white;
+    border-radius: 12px;
+    margin: 40px auto 0 auto;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#qr-code-image {
+    width: 200px;
+    height: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+#loading-blocker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0);
+    /* fully transparent but blocks clicks */
+    z-index: 9999;
+    /* on top of everything */
+    cursor: wait;
+    /* show loading cursor */
+}
+
+.fade-out {
+    animation: fadeOutPage4 2s ease forwards;
+}
+
+.fade-in {
+    animation: fadeInPage4 1s forwards;
+}
+
+@keyframes fadeOutPage4 {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeInPage4 {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+#loading-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    margin-top: 20px;
+    opacity: 0;
+    animation: fadeInPage4 0.5s forwards;
+}
+
+.spinner {
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-left-color: #000000;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+/* End QR Code */
+
+/* Journey */
+.page-4-journey-section-title {
+    margin-top: 80px;
+}
+
+.our-journey-content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    padding-top: 40px;
+}
+
+.journey-first-content-container,
+.journey-second-content-container,
+.journey-last-content-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.journey-content-description {
+    padding: 15px 0 5px 0;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    max-width: 350px !important;
+    align-self: center;
+    transform: scale(1);
+    opacity: 0;
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+.journey-content-description.animate-on-scroll.visible,
+.idle.animate-on-scroll.visible {
+    animation-name: zoomIn;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-timing-function: ease;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.slide-left,
+.slide-right,
+.idle {
+    position: relative;
+    /* for absolute img and overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 200px;
+    background-color: #000;
+    color: #fff;
+    border: 1px solid rgba(208, 208, 208, 0.3);
+    overflow: hidden;
+}
+
+.slide-left img,
+.slide-right img,
+.idle img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+    z-index: 0;
+}
+
+.slide-left {
+    border-radius: 50px 0 50px 0;
+    transform: translateX(-50px);
+    transition: transform 1s ease, opacity 1s ease;
+    opacity: 0;
+}
+
+.idle {
+    border-radius: 50px;
+    transform: scale(0);
+    opacity: 0;
+}
+
+.slide-right {
+    border-radius: 0 50px 0 50px;
+    transform: translateX(50px);
+    transition: transform 1s ease, opacity 1s ease;
+    opacity: 0;
+}
+
+.slide-left.animate-on-scroll.visible,
+.slide-right.animate-on-scroll.visible {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Overlay */
+.slide-left::before,
+.idle::before,
+.slide-right::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    border-radius: inherit;
+}
+
+/* Text above overlay */
+.slide-left h2,
+.slide-right h2,
+.idle h2 {
+    position: relative;
+    z-index: 2;
+}
+
+.journey-content {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: "Gotham", sans-serif;
+    font-size: 25px;
+    line-height: 1.4;
+    font-weight: normal;
+    word-spacing: 5px;
+    color: #FFFFFF;
+}
+/* End Journey */
+
+.page-4-title.animate,
+.attendance-confirmation-description.animate,
+.attendance-confirmation-form-container.animate,
+.page-4-journey-section-title.animate {
+    animation: zoomIn 1s ease-out forwards;
+}

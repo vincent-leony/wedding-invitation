@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vincent & Leony - Wedding Invitation</title>
+    <!-- VAP: Splash screen DF Logo -->
+    <link rel="preload" href="assets/splash.jpg" as="image" fetchpriority="high" />
+    <link rel="preload" as="image" href="assets/aw.jpg">
+    <link rel="preload" as="image" href="assets/bowarrow.jpg">
+    <link rel="preload" as="image" href="assets/bowling.jpg">
+    <link rel="preload" as="image" href="assets/cutngrilll.jpg">
+    <link rel="preload" as="image" href="assets/gi.jpg">
+    <link rel="preload" as="image" href="assets/roca1.jpg">
+    <link rel="preload" as="image" href="assets/roca2.jpg">
+    <link rel="preload" as="image" href="assets/thereceptionbg.jpg">
+    <link rel="preload" as="image" href="assets/tp.jpg">
+    <link rel="stylesheet" href="styles/fonts.css" />
+    <link rel="stylesheet" href="styles/animations.css" />
+    <link rel="stylesheet" href="styles/media.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/page-1.css" />
+    <link rel="stylesheet" href="styles/page-2.css" />
+    <link rel="stylesheet" href="styles/page-3.css" />
+    <link rel="stylesheet" href="styles/page-4.css" />
+    <link rel="stylesheet" href="styles/page-5.css" />
+    <link rel="stylesheet" href="styles/page-6.css" />
+    <link rel="stylesheet" href="styles/page-7.css" />
+    <link rel="stylesheet" href="styles/page-8.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-sV8eV0y+...." crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
+</head>
+
+<body class="locked">
+
+    <!-- Intro Lock Screen -->
+    <section id="intro">
+        <div id="intro-loading">
+            <div class="loader"></div>
+        </div>
+
+        <div id="intro-content" style="display: none;">
+            <div class="intro-heading">
+                <h2 class="intro-title">Wedding Invitation</h2>
+                <h1 class="intro-couple-name">Vincent &amp; Leony</h1>
+            </div>
+            <div class="intro-guest-name">
+                <h2 class="guest-greeting">Dear Mr./Mrs./Ms.:</h2>
+                <h2 class="guest-name">Guest</h2>
+            </div>
+            <button id="open-invitation-button">
+                Open Invitation <span class="icon"><i class="fa-solid fa-envelope-open"></i></span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Scrollable Content -->
+    <main id="main-content">
+        <section class="page page-1">
+            <h2 class="page-1-couple-name">Vincent <br> &amp; <br> Leony</h2>
+
+            <!-- Bible -->
+            <div class="page-1-bible-container">
+                <p class="page-1-bible-text">
+                    "Allah memberkati mereka, lalu Allah berfirman kepada mereka: 'Beranakcuculah dan bertambah banyak;
+                    penuhilah bumi dan taklukkanlah itu, berkuasalah atas ikan-ikan di laut dan burung-burung di udara
+                    dan atas segala binatang yang merayap di bumi."
+                </p>
+                <h1 class="page-1-bible-section">- Kejadian 1:28 -</h1>
+            </div>
+
+            <!-- Scroll down indicator wrapper -->
+            <div class="scroll-indicator-wrapper">
+                <div class="scroll-down-indicator">
+                    <span class="arrow"><i class="fa-solid fa-angles-down"></i></span>
+                </div>
+            </div>
+        </section>
+
+        <section class="page page-2">
+            <div class="page-2-heading">
+                <h2 class="page-2-title">The Wedding Of</h2>
+                <h1 class="page-2-couple-name">Vincent &amp; Leony</h1>
+            </div>
+
+            <!-- Countdown -->
+            <div class="count-down-timer-container">
+                <div class="count-down-time">
+                    <h2 id="days">00</h2>
+                    <p>Days</p>
+                </div>
+                <div class="count-down-time">
+                    <h2 id="hours">00</h2>
+                    <p>Hours</p>
+                </div>
+                <div class="count-down-time">
+                    <h2 id="minutes">00</h2>
+                    <p>Minutes</p>
+                </div>
+                <div class="count-down-time">
+                    <h2 id="seconds">00</h2>
+                    <p>Seconds</p>
+                </div>
+            </div>
+
+            <!-- Calendar -->
+            <div class="calendar-container fade-in-hidden" id="lazy-calendar-container"></div>
+
+            <!-- Set reminder -->
+            <div id="reminder-button-wrapper" class="fade-in-hidden">
+                <button id="set-reminder-button">
+                    Set A Reminder <span class="icon"><i class="fa-solid fa-bell"></i></span>
+                </button>
+            </div>
+
+            <div class="individual-introduction-content-container">
+                <div class="bride-introduction-content-container slide-left-fade-in">
+                    <h2 class="bride-introduction-title">The Bride</h2>
+
+                    <div class="bride-inner-card">
+                        <h3 class="bride-name">Leony Anindya Hardi</h3>
+                        <p class="bride-family">
+                            Second child of Mr. Noer Zhou & Mrs. Yuli
+                        </p>
+                        <button class="bride-button">
+                            <span class="icon"><i class="fab fa-instagram"></i></span> leony.ah
+                        </button>
+                    </div>
+                </div>
+
+                <h2 class="individual-introduction-and-text">&</h2>
+
+                <div class="groom-introduction-content-container slide-right-fade-in">
+                    <h2 class="groom-introduction-title">The Groom</h2>
+
+                    <div class="groom-inner-card">
+                        <h3 class="groom-name">Vincent Ardyan Putra</h3>
+                        <p class="groom-family">
+                            Second child of Mr. Hardyanto Candra Lim & Mrs. Yanti Louw
+                        </p>
+                        <button class="groom-button">
+                            <span class="icon"><i class="fab fa-instagram"></i></span> vincent_a.p
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="page page-3">
+            <h2 class="page-3-title">Wedding Schedule</h2>
+
+            <div class="the-vows-content-container">
+                <div class="the-vows-content">
+                    <div class="the-vows-image"></div>
+                    <div class="the-vows-body-container">
+                        <div class="the-vows-body-title">The Vows</div>
+                        <div class="the-vows-body-content">
+                            <p class="the-vows-date">Saturday,<br>25th April 2026</p>
+                            <p class="the-vows-location-name">Novotel Tangerang</p>
+                            <p class="the-vows-location-address">
+                                Tangcity Superblock, Jl. Jenderal Sudirman No.1, Babakan, Tangerang, Tangerang City,
+                                Banten 15117
+                            </p>
+                            <p class="the-vows-time">09.00 AM - 11.00 AM</p>
+                            <button class="the-vows-location-button">
+                                <span class="icon"><i class="fa-solid fa-map-location-dot"></i></span> See Location
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="the-reception-content-container">
+                <div class="the-reception-content">
+                    <div class="the-reception-image"></div>
+                    <div class="the-reception-body-container">
+                        <div class="the-reception-body-title">The Reception</div>
+                        <div class="the-reception-body-content">
+                            <p class="the-reception-date">Saturday,<br>25th April 2026</p>
+                            <p class="the-reception-location-name">Novotel Tangerang</p>
+                            <p class="the-reception-location-address">
+                                Tangcity Superblock, Jl. Jenderal Sudirman No.1, Babakan, Tangerang, Tangerang City,
+                                Banten 15117
+                            </p>
+                            <p class="the-reception-time">05.30 PM</p>
+                            <button class="the-reception-location-button">
+                                <span class="icon"><i class="fa-solid fa-map-location-dot"></i></span> See Location
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="page page-4">
+            <div id="loading-blocker" style="display:none;"></div>
+
+            <h2 class="page-4-title">Confirm your Attendance</h2>
+
+            <h2 class="attendance-confirmation-description">
+                Your presence would be a great honor for us and our family. Kindly confirm your attendance through the
+                reservation form below.
+            </h2>
+
+            <!-- <div id="loading-indicator" style="display: none;">
+                <span class="spinner"></span> Submitting...
+            </div> -->
+
+            <!-- Attendance Form -->
+            <div class="attendance-confirmation-form-container">
+                <form class="attendance-confirmation-form" id="rspv-form" novalidate>
+                    <!-- guest name -->
+                    <label class="rspv-guest-name-label" for="rspv-guest-name">Guest Name:</label>
+                    <div>
+                        <input class="rspv-guest-name-input" type="text" id="rspv-guest-name" name="rspv-guest-name"
+                            value="">
+                        <div class="rspv-error-message">This field is required.</div>
+                    </div>
+                    <!-- end guest name -->
+
+                    <!-- attendance confirmaiton -->
+                    <label class="rspv-attendance-confirmation-label" for="attendance-confirmation">
+                        Attendance Confirmation:
+                    </label>
+                    <select class="rspv-attendance-confirmation-selector" id="attendance-confirmation"
+                        name="attendance-confirmation">
+                        <option value="Select">Select</option>
+                        <option value="Present">Present</option>
+                        <option value="Absent">Absent</option>
+                    </select>
+                    <div class="rspv-attendance-confirmation-error-message">Please select a valid value!</div>
+                    <!-- end attendance confirmaiton -->
+
+                    <!-- total guests -->
+                    <div class="rspv-total-guests-container">
+                        <label for="rspv-total-guests" class="total-guests-label total-guests">
+                            Total Guests:
+                        </label>
+                        <div class="rspv-total-guests-input-container">
+                            <input class="rspv-total-guests-input" type="number" id="total-guests" min="1" step="1">
+                            <div class="rspv-error-message">Please input a valid number!</div>
+                        </div>
+                    </div>
+                    <!-- end total guests -->
+
+                    <div id="rspv-submit-button" class="rspv-button-submit">
+                        <div class="button-content">
+                            <!-- &nbsp; to add space between text and icon -->
+                            <i class="fas fa-clipboard-check"></i>&nbsp;
+                            <span>Confirm Attendance</span>
+                        </div>
+                        <div id="button-loading-spinner" class="spinner" style="display: none;"></div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- QR Code -->
+            <div id="qr-code-container">
+                <h2 class="qr-code-message">
+                    Please show this QR code at the venue. Thanks!
+                </h2>
+
+                <div class="qr-code-image-container">
+                    <img id="qr-code-image">
+                </div>
+            </div>
+
+            <!-- Our Journey -->
+            <h2 class="page-4-journey-section-title">Our Journey</h2>
+            <div class="our-journey-content-container">
+                <div class="journey-first-content-container">
+                    <div class="slide-left animate-on-scroll">
+                        <img src="assets/bowling.jpg" alt="Bowling" />
+                        <h2 class="journey-content"><b>Introduction</b><br>2015</h2>
+                    </div>
+                    <p class="journey-content-description animate-on-scroll">KEPO BGT SEH</p>
+                </div>
+
+                <div class="journey-second-content-container">
+                    <div class="idle animate-on-scroll">
+                        <img src="assets/aw.jpg" alt="Love is in the air" />
+                        <h2 class="journey-content"><b>Love is in the air</b><br>2016</h2>
+                    </div>
+                    <p class="journey-content-description animate-on-scroll">NAH KAN KEPO</p>
+                </div>
+
+                <div class="journey-last-content-container">
+                    <div class="slide-right animate-on-scroll">
+                        <img src="assets/tp.jpg" alt="Forever After" />
+                        <h2 class="journey-content"><b>Forever After</b><br>2015</h2>
+                    </div>
+                    <h2 class="journey-content-description animate-on-scroll">KEPO MULU</h2>
+                </div>
+            </div>
+        </section>
+
+        <section class="page page-5">
+            <!-- Wishes & Prayers -->
+            <h2 class="page-5-wishes-and-prayers-section-title">Pray & Wish</h2>
+            <div class="wish-and-pray-container">
+                <div class="wish-and-pray-form-container">
+                    <form class="wish-and-pray-form">
+                        <label class="wish-and-pray-guest-name-input-label" for="wish-and-pray-guest-name">Name:</label>
+                        <input class="wish-and-pray-input-field" type="text" id="wish-and-pray-guest-name"
+                            name="wish-and-pray-guest-name" value="">
+
+                        <label class="wish-and-pray-data-input-label" for="wish-and-pray-text-area">Wishes &
+                            Prayers:</label>
+                        <textarea class="wish-and-pray-input-field" id="wish-and-pray-text-area"
+                            name="wish-and-pray-text-area"></textarea>
+                        <div id="wish-and-pray-message" class="wish-and-pray-feedback-message"></div>
+
+                        <button type="button" class="wish-and-pray-submit-button">
+                            <div class="button-text">
+                                <i class="far fa-comment-dots"></i>&nbsp;Send Wishes
+                            </div>
+                            <div class="wish-and-pray-loading-spinner"></div>
+                        </button>
+                    </form>
+                </div>
+                <div class="wish-and-pray-list-container">
+                    <div class="wish-and-pray-heading-container">
+                        <div class="wish-and-pray-list-section-header">List of Wishes</div>
+                        <div class="wish-and-pray-total-data"></div>
+                    </div>
+                    <div class="wish-and-pray-list hidden">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="page page-6">
+            <h2 class="page-6-title">Send Gift</h2>
+            <h2 class="page-6-header">
+                Your presence is the greatest gift of all. However, should you wish to give us a token of your love, you
+                may do so through the feature below:
+            </h2>
+
+            <!-- Iban -->
+            <div class="page-6-iban-container">
+                <p id="iban">123456789 - BCA a/n Vincent Ardyan Putra</p>
+                <button class="iban-copy-button" onclick="copyToClipboard()">Copy Number</button>
+            </div>
+
+            <h2 class="page-6-content-gift-delivery-title">Gift Delivery Address</h2>
+            <h2 class="page-6-content-gift-delivery-address">UPDATE ALAMAT APART</h2>
+            <h2 class="page-6-content-gift-delivery-receiver-name">Receiver Name: Leony Anindya Hardi</h2>
+            <h2 class="page-6-content-gift-delivery-receiver-number">Receiver Number: +62 xxx-xxxx-xxxx</h2>
+
+            <button class="page-6-content-gift-delivery-confirm-button" onclick="openWhatsApp()">
+                <i class="fab fa-whatsapp"></i>&nbsp;&nbsp;Confirm
+            </button>
+        </section>
+
+        <section class="page page-7">
+            <h2 class="page-7-title">Gallery Of</h2>
+            <h1 class="page-7-subtitle">Vincent &amp; Leony</h1>
+
+            <div class="prewed-video lazy-load-iframe"
+                data-src="https://www.youtube.com/embed/18Ee1nErhW0?autoplay=1&mute=1">
+            </div>
+
+            <!-- Staggered Grid -->
+            <div class="staggered-grid">
+                <img src="assets/aw.jpg" alt="Gallery Image 1" />
+                <img src="assets/bowarrow.jpg" alt="Gallery Image 2" />
+                <img src="assets/bowling.jpg" alt="Gallery Image 3" />
+                <img src="assets/cutngrilll.jpg" alt="Gallery Image 4" />
+                <img src="assets/roca1.jpg" alt="Gallery Image 5" />
+                <img src="assets/roca2.jpg" alt="Gallery Image 6" />
+                <img src="assets/tp.jpg" alt="Gallery Image 7" />
+            </div>
+        </section>
+
+        <!-- Lightbox overlay -->
+        <div id="lightboxOverlay">
+            <button id="lightboxClose" aria-label="Close">&times;</button>
+            <img src="" alt="Enlarged image" />
+        </div>
+
+        <section class="page page-8">
+            <div class="overlay"></div>
+            <h2 class="page-8-title">Thank you</h2>
+
+            <!-- Bible -->
+            <div class="page-8-subtitle-container">
+                <p class="page-8-subtitle-text">
+                    It would be a great joy for us if you could attend our special day. Thank you for all the kind
+                    wishes, prayers, and attention. <br>We look forward to seeing you on our happy day.
+                </p>
+                <h1 class="page-8-date-section">Vincent & Leony – April 25, 2026</h1>
+            </div>
+        </section>
+    </main>
+
+    <!-- Music Player -->
+    <div id="music-player">
+        <button id="musicToggle"><i class="fa-solid fa-circle-play"></i></button></button>
+    </div>
+
+    <audio id="background-music" loop>
+        <source src="musics/bg_music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script src="scripts/script.js"></script>
+    <script src="scripts/introduction_page_script.js"></script>
+    <script src="scripts/page_2_script.js"></script>
+    <script src="scripts/page_3_script.js"></script>
+    <script src="scripts/page_4_script.js"></script>
+    <script src="scripts/page_5_script.js"></script>
+    <script src="scripts/page_6_script.js"></script>
+    <script src="scripts/page_7_script.js"></script>
+    <script src="scripts/page_8_script.js"></script>
+</body>
+
+</html>

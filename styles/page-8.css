@@ -1,0 +1,72 @@
+.page-8 {
+    position: relative;
+    height: 100vh;
+    background-color: #000;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* center horizontally */
+    justify-content: center;
+    transition: background-image 1s ease-in-out;
+    z-index: 0;
+}
+
+.page-8 .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+/* Make sure content inside page-1 is above the overlay */
+.page-8 > * {
+    position: relative;
+    z-index: 2;
+    color: white; /* just in case text is not white */
+}
+
+.page-8-title {
+    text-align: center;
+    width: 100%;
+    font-family: "Luxio", sans-serif;
+    font-size: 30px;
+    font-weight: normal;
+    word-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 0;
+}
+
+.page-8-subtitle-container {
+    display: flex;
+    flex-direction: column; 
+    text-align: center;
+    max-width: 80%;
+    margin: 0 auto;
+    color: white;
+    margin-top: 20px;
+    gap: 30px;
+}
+
+.page-8-subtitle-text, .page-8-date-section {
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 14px;
+    letter-spacing: 0.5px;
+    color: white;
+    opacity: 0;
+}
+
+.page-8-date-section {
+    font-weight: bold;
+}
+
+.page-8-title.animate,
+.page-8-subtitle-text.animate,
+.page-8-date-section.animate {
+    animation: zoomIn 1s ease-out 0.2s forwards;
+}

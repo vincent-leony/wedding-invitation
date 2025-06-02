@@ -1,0 +1,41 @@
+/* Music Player */
+#music-player {
+    display: none;
+    /* Hidden initially */
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: rgb(26, 0, 73);
+    padding: 10px;
+    border-radius: 50%;
+    z-index: 100;
+}
+
+#musicToggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+#musicToggle i {
+    line-height: 1;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    #musicToggle {
+        font-size: 18px;
+    }
+}
+
+#music-player.playing {
+    animation: pulse 1s infinite;
+}

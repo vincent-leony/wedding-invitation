@@ -1,0 +1,97 @@
+.page-1 {
+    position: relative; /* Make it a positioning context for the overlay */
+    background: url('../assets/splash.jpg') no-repeat center center/cover;
+    background-color: #fefefe;
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* center horizontally */
+    justify-content: center;
+    padding-top: 40px;  /* add some top padding if needed */
+    height: 100vh;  /* full viewport height to fill the screen */
+}
+
+/* Add overlay using ::before */
+.page-1::before {
+    content: "";
+    position: absolute;
+    inset: 0; /* shorthand for top:0; right:0; bottom:0; left:0; */
+    background-color: rgba(0, 0, 0, 0.5); /* black with 50% opacity */
+    pointer-events: none; /* so clicks pass through overlay */
+    z-index: 1;
+}
+
+/* Make sure content inside page-1 is above the overlay */
+.page-1 > * {
+    position: relative;
+    z-index: 2;
+    color: white; /* just in case text is not white */
+}
+
+.page-1-couple-name {
+    text-align: center;
+    width: 100%;
+    font-family: "Luxio", sans-serif;
+    font-size: 30px;
+    font-weight: normal;
+    word-spacing: 0px;
+    color: #FFFFFF;
+}
+
+.page-1-bible-container {
+    display: flex;
+    flex-direction: column; 
+    text-align: center;
+    max-width: 80%;
+    margin: 0 auto;
+    color: white;
+    margin-top: 20px;
+    gap: 30px;
+}
+
+.page-1-bible-text, .page-1-bible-section {
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 14px;
+    letter-spacing: 0.5px;
+    color: white;
+}
+
+.page-1-bible-section {
+    font-weight: bold;
+}
+
+.page-1-couple-name.animate,
+.page-1-bible-container.animate {
+    animation: zoomIn 1s ease-out 0.2s forwards;
+}
+
+.scroll-indicator-wrapper {
+    height: 40px; /* or however tall your indicator is */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    padding-left: 20px;
+}
+
+.scroll-down-indicator {
+    font-size: 16px;
+    color: white;
+    opacity: 0.8;
+    animation: fadeBounce 2s infinite;
+    z-index: 5;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.scroll-down-indicator.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.scroll-down-indicator .fa-angles-down {
+    font-size: 24px;
+    display: block;
+    margin-top: 5px;
+}
