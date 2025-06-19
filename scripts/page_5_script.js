@@ -40,7 +40,7 @@ function setupStaggeredZoomInAnimation() {
                 // Trigger fetch only once
                 if (!hasTriggered) {
                     hasTriggered = true;
-                    displayWishesAndPrayers(response.data);
+                    displayWishesAndPrayers(cachedWishes);
                     // fetchWishesAndDisplay();
                 }
             }
