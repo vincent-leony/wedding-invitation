@@ -1,6 +1,7 @@
 let cachedWishes = [];
 
 document.addEventListener("DOMContentLoaded", function () {
+    fetchWishesAndDisplay();
     setupPage5ZoomInAnimation();
     setupStaggeredZoomInAnimation();
     setupSendWishesButtonListener();
