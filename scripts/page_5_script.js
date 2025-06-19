@@ -163,7 +163,7 @@ function handleSendWishes() {
 }
 
 function displayWishesAndPrayers(wishes) {
-    const wishes = response.data.slice(0, 10);
+    // const wishes = response.data.slice(0, 10);
     const listContainer = document.querySelector('.wish-and-pray-list');
     const totalDataCounter = document.querySelector('.wish-and-pray-total-data');
     const listWrapper = document.querySelector('.wish-and-pray-list-container');
