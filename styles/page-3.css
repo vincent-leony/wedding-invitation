@@ -26,8 +26,9 @@
 
 /* The vows and reception */
 .the-vows-content-container, .the-reception-content-container {
-    max-width: 400px;
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .the-reception-content-container {
@@ -36,6 +37,7 @@
 }
 
 .the-vows-content, .the-reception-content {
+    max-width: 400px;
     border-radius: 10px;
     overflow: hidden;
     padding-top: 25px;
