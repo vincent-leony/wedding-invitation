@@ -50,40 +50,41 @@ function setupStaggeredZoomInAnimation() {
 }
 
 function fetchWishesAndDisplay() {
-    axios.get('https://jsonplaceholder.typicode.com/posts')
+    axios.get('https://teal-creponne-1bac93.netlify.app/.netlify/functions/get_wishes_and_prayers')
         .then(response => {
-            const wishes = response.data.slice(0, 10);
-            const listContainer = document.querySelector('.wish-and-pray-list');
-            const totalDataCounter = document.querySelector('.wish-and-pray-total-data');
-            const listWrapper = document.querySelector('.wish-and-pray-list-container');
+            displayWishesAndPrayers(response.data);
+            // const wishes = response.data.slice(0, 10);
+            // const listContainer = document.querySelector('.wish-and-pray-list');
+            // const totalDataCounter = document.querySelector('.wish-and-pray-total-data');
+            // const listWrapper = document.querySelector('.wish-and-pray-list-container');
 
-            listContainer.innerHTML = '';
+            // listContainer.innerHTML = '';
 
-            if (!wishes.length) {
-                // No data: hide container and exit early
-                listWrapper.style.display = 'none';
-                return;
-            }
+            // if (!wishes.length) {
+            //     // No data: hide container and exit early
+            //     listWrapper.style.display = 'none';
+            //     return;
+            // }
 
-            // If data exists: show the container
-            listWrapper.style.display = 'flex';
+            // // If data exists: show the container
+            // listWrapper.style.display = 'flex';
 
-            wishes.forEach((wish, index) => {
-                const item = document.createElement('div');
-                item.classList.add('wish-list-item');
-                item.innerHTML = `
-                    <h4 style="margin-bottom: 5px; font-size: 14px; padding-top: 5px;">${wish.title}</h4>
-                    <p style="margin: 0 0 10px; font-size: 12px;">${wish.body}</p>
-                    <hr style="border: none; border-top: 1px solid #ccc; margin-bottom: 10px;" />
-                `;
-                listContainer.appendChild(item);
-            });
+            // wishes.forEach((wish, index) => {
+            //     const item = document.createElement('div');
+            //     item.classList.add('wish-list-item');
+            //     item.innerHTML = `
+            //         <h4 style="margin-bottom: 5px; font-size: 14px; padding-top: 5px;">${wish.attendeeName}</h4>
+            //         <p style="margin: 0 0 10px; font-size: 12px;">${wish.wishesAndPrayers}</p>
+            //         <hr style="border: none; border-top: 1px solid #ccc; margin-bottom: 10px;" />
+            //     `;
+            //     listContainer.appendChild(item);
+            // });
 
-            totalDataCounter.textContent = `${wishes.length} wishes`;
+            // totalDataCounter.textContent = `${wishes.length} wishes`;
 
-            listContainer.classList.remove('hidden');
+            // listContainer.classList.remove('hidden');
 
-            observeWishItems(); // Animation observer
+            // observeWishItems(); // Animation observer
         })
         .catch(error => {
             console.error('Error fetching wishes:', error);
@@ -138,18 +139,18 @@ function handleSendWishes() {
     button.classList.add('wish-and-pray-loading');
     button.disabled = true;
 
-    axios.post('https://jsonplaceholder.typicode.com/posts', {
-            title: name,
-            body: message,
-            userId: 1,
+    axios.post('https://teal-creponne-1bac93.netlify.app/.netlify/functions/submit_wishes_and_prayers', {
+            attendeeName: name,
+            wishesAndPrayers: message
         })
-        .then(() => {
+        .then(response => {
             feedback.textContent = 'Wish sent successfully!';
             feedback.classList.add('success');
             document.querySelector('#wish-and-pray-guest-name').value = '';
             document.querySelector('#wish-and-pray-text-area').value = '';
 
-            fetchWishesAndDisplay();
+            displayWishesAndPrayers(response.data);
+            // fetchWishesAndDisplay();
         })
         .catch(() => {
             feedback.textContent = 'Failed to send wishes. Please try again.';
@@ -160,6 +161,70 @@ function handleSendWishes() {
             button.disabled = false;
         });
 }
+
+function displayWishesAndPrayers(wishes) {
+    const wishes = response.data.slice(0, 10);
+    const listContainer = document.querySelector('.wish-and-pray-list');
+    const totalDataCounter = document.querySelector('.wish-and-pray-total-data');
+    const listWrapper = document.querySelector('.wish-and-pray-list-container');
+
+    listContainer.innerHTML = '';
+
+    if (!wishes.length) {
+        // No data: hide container and exit early
+        listWrapper.style.display = 'none';
+        return;
+    }
+
+    // If data exists: show the container
+    listWrapper.style.display = 'flex';
+
+    wishes.forEach((wish, index) => {
+        const item = document.createElement('div');
+        item.classList.add('wish-list-item');
+        item.innerHTML = `
+            <h4 style="margin-bottom: 5px; font-size: 14px; padding-top: 5px;">${wish.attendeeName}</h4>
+            <p style="margin: 0 0 10px; font-size: 12px;">
+                ${wish.wishesAndPrayers}
+                <br><span style="font-size: 11px; color: gray;">${timeAgo(wish.createdAt)}</span>
+            </p>
+            <hr style="border: none; border-top: 1px solid #ccc; margin-bottom: 10px;" />
+        `;
+        listContainer.appendChild(item);
+    });
+
+    totalDataCounter.textContent = `${wishes.length} wishes`;
+
+    listContainer.classList.remove('hidden');
+
+    observeWishItems(); // Animation observer
+}
+
+function timeAgo(dateString) {
+    const now = new Date();
+    const date = new Date(dateString);
+    const seconds = Math.floor((now - date) / 1000);
+
+    const intervals = [
+        { label: 'year', seconds: 31536000 },
+        { label: 'month', seconds: 2592000 },
+        { label: 'week', seconds: 604800 },
+        { label: 'day', seconds: 86400 },
+        { label: 'hour', seconds: 3600 },
+        { label: 'minute', seconds: 60 },
+        { label: 'second', seconds: 1 }
+    ];
+
+    for (const interval of intervals) {
+        const count = Math.floor(seconds / interval.seconds);
+        if (count > 0) {
+            return `${count} ${interval.label}${count !== 1 ? 's' : ''} ago`;
+        }
+    }
+
+    return 'just now';
+}
+
 
 function setupUserInputListener() {
     const messageDiv = document.querySelector('#wish-and-pray-message');
