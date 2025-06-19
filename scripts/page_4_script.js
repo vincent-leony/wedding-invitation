@@ -67,6 +67,7 @@ rspvSubmitButton.addEventListener('click', (e) => {
     const totalGuestsError = totalGuestsInput.nextElementSibling;
     const numberValue = Number(totalGuestsInput.value);
     const isPresent = attendanceSelect.value === 'Present';
+    let totalAttendees = 0;
     if (isPresent && (!Number.isInteger(numberValue) || numberValue <= 0)) {
         totalGuestsInput.classList.add('error');
         totalGuestsError.style.display = 'block';
@@ -80,6 +81,7 @@ rspvSubmitButton.addEventListener('click', (e) => {
         if (attendanceSelect.value === 'Absent') {
             isAbsent = true;
         } else {
+            totalAttendees = totalGuestsInput.value;
             totalGuestsInput.classList.remove('error');
             totalGuestsError.style.display = 'none';
         }
@@ -99,9 +101,13 @@ rspvSubmitButton.addEventListener('click', (e) => {
     const formContainer = document.querySelector('.attendance-confirmation-form-container');
     const description = document.querySelector('.attendance-confirmation-description');
 
-    // Fake API call
-    axios.get('https://jsonplaceholder.typicode.com/posts/1')
-        .then(response => {
+    // API Call
+    axios.post('https://teal-creponne-1bac93.netlify.app/.netlify/functions/attendance_confirmation', {
+            attendeeName: guestNameInput.value,
+            confirmation: attendanceSelect.value,
+            totalAttendees: numberValue
+        }).then(response => {
+            console.log(response);
             // Fade out form and description
             if (!isAbsent) {
                 formContainer.classList.add('fade-out');
