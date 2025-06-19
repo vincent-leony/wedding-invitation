@@ -107,7 +107,6 @@ rspvSubmitButton.addEventListener('click', (e) => {
             confirmation: attendanceSelect.value,
             totalAttendees: numberValue
         }).then(response => {
-            console.log(response);
             // Fade out form and description
             if (!isAbsent) {
                 formContainer.classList.add('fade-out');
