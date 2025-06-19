@@ -184,16 +184,23 @@ function displayWishesAndPrayers(wishes) {
         item.classList.add('wish-list-item');
         item.innerHTML = `
             <h4 style="margin-bottom: 5px; font-size: 14px; padding-top: 5px;">${wish.attendeeName}</h4>
-            <p style="margin: 0 0 10px; font-size: 12px;">
-                ${wish.wishesAndPrayers}
-                <br><span style="font-size: 11px; color: gray;">${timeAgo(wish.createdAt)}</span>
-            </p>
-            <hr style="border: none; border-top: 1px solid #ccc; margin-bottom: 10px;" />
+            <p style="margin: 0 0 10px; font-size: 12px;">${wish.wishesAndPrayers}</p>
+            <hr style="border: none; border-top: 1px solid #ccc; margin-bottom: 5px;" />
+            <span style="font-size: 11px; color: gray;">${timeAgo(wish.createdAt)}</span>
         `;
         listContainer.appendChild(item);
     });
+    
+    let textContent = "";
+    if (wishes.length <= 5) {
+        textContent = "Latest Wishes";
+    } else if (wishes.length <= 10) {
+        textContent = `The last ${wishes.length} wishes`;
+    } else {
+        textContent = `${wishes.length} wishes`;
+    }
 
-    totalDataCounter.textContent = `${wishes.length} wishes`;
+    totalDataCounter.textContent = textContent;
 
     listContainer.classList.remove('hidden');
 
