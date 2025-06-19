@@ -1,3 +1,5 @@
+let cachedWishes = [];
+
 document.addEventListener("DOMContentLoaded", function () {
     setupPage5ZoomInAnimation();
     setupStaggeredZoomInAnimation();
@@ -38,7 +40,8 @@ function setupStaggeredZoomInAnimation() {
                 // Trigger fetch only once
                 if (!hasTriggered) {
                     hasTriggered = true;
-                    fetchWishesAndDisplay();
+                    displayWishesAndPrayers(cachedWishes);
+                    // fetchWishesAndDisplay();
                 }
             }
         });
@@ -52,39 +55,8 @@ function setupStaggeredZoomInAnimation() {
 function fetchWishesAndDisplay() {
     axios.get('https://teal-creponne-1bac93.netlify.app/.netlify/functions/get_wishes_and_prayers')
         .then(response => {
-            displayWishesAndPrayers(response.data);
-            // const wishes = response.data.slice(0, 10);
-            // const listContainer = document.querySelector('.wish-and-pray-list');
-            // const totalDataCounter = document.querySelector('.wish-and-pray-total-data');
-            // const listWrapper = document.querySelector('.wish-and-pray-list-container');
-
-            // listContainer.innerHTML = '';
-
-            // if (!wishes.length) {
-            //     // No data: hide container and exit early
-            //     listWrapper.style.display = 'none';
-            //     return;
-            // }
-
-            // // If data exists: show the container
-            // listWrapper.style.display = 'flex';
-
-            // wishes.forEach((wish, index) => {
-            //     const item = document.createElement('div');
-            //     item.classList.add('wish-list-item');
-            //     item.innerHTML = `
-            //         <h4 style="margin-bottom: 5px; font-size: 14px; padding-top: 5px;">${wish.attendeeName}</h4>
-            //         <p style="margin: 0 0 10px; font-size: 12px;">${wish.wishesAndPrayers}</p>
-            //         <hr style="border: none; border-top: 1px solid #ccc; margin-bottom: 10px;" />
-            //     `;
-            //     listContainer.appendChild(item);
-            // });
-
-            // totalDataCounter.textContent = `${wishes.length} wishes`;
-
-            // listContainer.classList.remove('hidden');
-
-            // observeWishItems(); // Animation observer
+            cachedWishes = response.data;
+            // displayWishesAndPrayers(response.data);
         })
         .catch(error => {
             console.error('Error fetching wishes:', error);
