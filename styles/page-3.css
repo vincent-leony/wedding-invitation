@@ -59,7 +59,7 @@
     width: 100%;
     border-radius: 170px 0 0 0;
     overflow: hidden;
-    background-image: url("../assets/gi.jpg");
+    background-image: url("../assets/TheVows.jpg");
     background-position: center;
     background-size: cover;
     filter: blur(10px);
@@ -71,9 +71,11 @@
     width: 100%;
     border-radius: 0 170px 0 0;
     overflow: hidden;
-    background-image: url("../assets/bowling.jpg");
+    background-image: url("../assets/TheReception.jpg");
     background-position: center;
-    background-size: cover;
+    background-size: 110%;
+    background-position-x: -10px;
+    background-position-y: -50px;
     filter: blur(10px);
     transition: filter 1s ease;
 }

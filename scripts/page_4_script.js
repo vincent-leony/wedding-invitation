@@ -181,19 +181,90 @@ function prefetchQRCode() {
 
 // Journey
 function applyJourneyAnimation() {
-    const animatedElements = document.querySelectorAll('.animate-on-scroll');
-    const observer = new IntersectionObserver((entries) => {
+    const carouselContainer = document.querySelector('.carousel-container');
+    const carouselCards = document.querySelectorAll('.carousel-card');
+
+    if (!carouselContainer || carouselCards.length === 0) {
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible'); // Animate in
-            } else {
-                entry.target.classList.remove('visible'); // Animate out
+                carouselCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.classList.add('visible');
+                    }, index * 400);
+                });
+                observer.unobserve(carouselContainer);
             }
         });
     }, {
-        threshold: 0.1
+        threshold: 0.5
     });
 
-    animatedElements.forEach(el => observer.observe(el));
+    observer.observe(carouselContainer);
 }
+
+document.querySelectorAll('.carousel-card').forEach((card, index) => {
+    card.addEventListener('click', () => {
+        const imgSrc = card.querySelector('img').src;
+        const caption = card.getAttribute('data-caption');
+        const popup = document.getElementById('carousel-popup');
+        const popupImage = document.getElementById('popup-image');
+        const popupText = document.querySelector('.popup-overlay-text');
+        const popupCaption = document.getElementById('popup-caption');
+        const popupCaptionTitle = document.getElementById('popup-caption-title');
+
+        popupImage.src = imgSrc;
+        let description = "";
+        let popupTitle = "";
+        if (index == 0) {
+            popupTitle = "2017";
+            description = `
+            2017 was the day our paths crossed with the most unexpected intentions, 
+            a single-click that changed everything.
+            <br><br>
+            Meeting each other came effortlessly, but holding on proved to be the 
+            greatest challenge.
+            <br><br>
+            In 2019, we drifted apart, taking separate roads, only to be drawn back 
+            together by choice, discovering each other once more.
+            `;
+        } else if (index == 1) {
+            popupTitle = "2022";
+            description = `
+            Who could ever keep us from gently waltzing back into the
+            warmth of rekindled flames, when every step feels like
+            coming home?<br><br>In 2022, someone quietly kept a promise to be
+            there at a graduation party. A simple gesture that became a
+            one-way ticket straight into someone's heart. From that
+            moment on, we began choosing each other, promising to love
+            and hold one another for all the days to come.
+            `;
+        } else if (index == 2) {
+            popupTitle = "2026";
+            description = `
+            We took a chance on being there for each other, with a
+            seriousness that led you to read this invitation. If you know it
+            in one glimpse its legendary, going from a single-click to
+            getting married.<br>And so, forever begins now.
+            `;
+        }
+        popupText.innerHTML = description;
+        popupCaptionTitle.textContent = popupTitle;
+        popupCaption.textContent = caption;
+        popup.classList.add('visible');
+    });
+});
+
+document.querySelector('.popup-close').addEventListener('click', () => {
+    document.getElementById('carousel-popup').classList.remove('visible');
+});
+
+document.getElementById('carousel-popup').addEventListener('click', (e) => {
+    if (e.target.id === 'carousel-popup') {
+        e.currentTarget.classList.remove('visible');
+    }
+});
 // End Journey

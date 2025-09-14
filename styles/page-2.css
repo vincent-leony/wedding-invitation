@@ -1,5 +1,5 @@
 .page-2 {
-    background: #e0f7fa;
+    background: linear-gradient(to bottom, #DFE6DA, #FDF6F0);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -71,7 +71,7 @@
     font-weight: normal;
     line-height: 1;
     display: block;
-    color: #000000;
+    color: black;
     font-family: "Poppins", sans-serif;
 }
 /* End Countdown timer */
@@ -204,9 +204,10 @@
     height: 420px;
     border-radius: 20px;
     overflow: visible;
-    background-image: url("../assets/roca2.jpg");
+    background-image: url("../assets/TheBride.jpg");
     background-size: cover;
     background-position: center;
+    background-size: 150% 150%;
     box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
@@ -218,14 +219,13 @@
 
 .bride-inner-card {
     width: 100%;
-    padding: 20px;
+    padding: 10px;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 16px;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     display: flex;
     flex-direction: column;
-    align-items: end;
     gap: 12px;
     color: white;
     font-family: "Poppins", sans-serif;
@@ -234,10 +234,9 @@
 }
 
 .bride-name {
-    text-align: right;
     font-size: 1.4rem;
     font-family: "Gotham", sans-serif;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: normal;
     color: #FFFFFF;
 }
@@ -285,8 +284,8 @@
     height: 420px;
     border-radius: 20px;
     overflow: visible;
-    background-image: url("../assets/roca1.jpg");
-    background-size: cover;
+    background-image: url("../assets/TheGroom.jpg");
+    background-size: 150% 150%;
     background-position: center;
     box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
     display: flex;
@@ -298,14 +297,13 @@
 
 .groom-inner-card {
     width: 100%;
-    padding: 20px;
+    padding: 10px;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 16px;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     display: flex;
     flex-direction: column;
-    align-items: start;
     gap: 12px;
     color: white;
     font-family: "Poppins", sans-serif;
@@ -314,10 +312,10 @@
 }
 
 .groom-name {
-    text-align: left;
+    text-align: right;
     font-size: 1.4rem;
     font-family: "Gotham", sans-serif;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: normal;
     color: #FFFFFF;
 }
@@ -344,10 +342,19 @@
     font-weight: normal;
     color: #FFFFFF;
     z-index: 10;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.bride-button {
+    align-self: self-end;
+}
+
+.groom-button {
+    align-self: self-start;
 }
 
 .bride-button, .groom-button {
-    padding: 8px 16px;
+    padding: 2px 10px;
     border: none;
     border-radius: 8px;
     background-color: rgba(255, 255, 255, 0.3);

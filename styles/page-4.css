@@ -9,7 +9,8 @@
     padding-bottom: 20px;
 }
 
-.page-4-title, .page-4-journey-section-title {
+.page-4-title,
+.page-4-journey-section-title {
     text-align: center;
     font-family: "Gotham", sans-serif;
     font-size: 35px;
@@ -19,6 +20,10 @@
     opacity: 0;
     margin-left: 50px;
     margin-right: 50px;
+}
+
+.page-4-journey-section-title {
+    padding-top: 70px;
 }
 
 .attendance-confirmation-description {
@@ -100,7 +105,8 @@
     margin: 0;
 }
 
-.rspv-error-message, .rspv-attendance-confirmation-error-message {
+.rspv-error-message,
+.rspv-attendance-confirmation-error-message {
     color: red;
     font-size: 0.85rem;
     display: none;
@@ -175,11 +181,8 @@
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0);
-    /* fully transparent but blocks clicks */
     z-index: 9999;
-    /* on top of everything */
     cursor: wait;
-    /* show loading cursor */
 }
 
 .fade-out {
@@ -238,139 +241,204 @@
 /* End QR Code */
 
 /* Journey */
-.page-4-journey-section-title {
-    margin-top: 80px;
-}
-
-.our-journey-content-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
+.carousel-container {
     width: 100%;
-    padding-top: 40px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 20px;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scroll-padding: 0 20px;
 }
 
-.journey-first-content-container,
-.journey-second-content-container,
-.journey-last-content-container {
-    position: relative;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    box-sizing: border-box;
+.carousel-container::-webkit-scrollbar {
+    display: none;
 }
 
-.journey-content-description {
-    padding: 15px 0 5px 0;
-    text-align: center;
-    font-family: "Poppins", sans-serif;
-    font-size: 12px;
-    font-weight: normal;
-    letter-spacing: 0.5px;
-    color: #FFFFFF;
-    max-width: 350px !important;
-    align-self: center;
-    transform: scale(1);
-    opacity: 0;
-    transition: transform 1s ease, opacity 1s ease;
-}
-
-.journey-content-description.animate-on-scroll.visible,
-.idle.animate-on-scroll.visible {
-    animation-name: zoomIn;
-    animation-duration: 1s;
-    animation-fill-mode: both;
-    animation-timing-function: ease;
-    opacity: 1;
-    transform: scale(1);
-}
-
-.slide-left,
-.slide-right,
-.idle {
-    position: relative;
-    /* for absolute img and overlay */
+.carousel-track {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    height: 200px;
-    background-color: #000;
-    color: #fff;
-    border: 1px solid rgba(208, 208, 208, 0.3);
+    flex-wrap: nowrap;
+    width: max-content;
+    gap: 20px;
+}
+
+.carousel-card {
+    flex: 0 0 auto;
+    width: 250px;
+    height: 300px;
+    border-radius: 25px;
     overflow: hidden;
+    scroll-snap-align: center;
+    cursor: pointer;
+    box-shadow: 0 5px 25px rgba(255, 255, 255, 0.15);
+    position: relative;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
 }
 
-.slide-left img,
-.slide-right img,
-.idle img {
-    position: absolute;
-    inset: 0;
+.carousel-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.carousel-card:hover {
+    transform: scale(1.05);
+}
+
+.carousel-card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: inherit;
-    z-index: 0;
+    display: block;
 }
 
-.slide-left {
-    border-radius: 50px 0 50px 0;
-    transform: translateX(-50px);
-    transition: transform 1s ease, opacity 1s ease;
+.click-indicator {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    color: #fff;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-family: "Poppins", sans-serif;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0.95;
+    white-space: nowrap;
+    box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
+}
+
+.carousel-card:hover .click-indicator {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+@media (max-width: 600px) {
+    .carousel-card {
+        width: 220px;
+        height: 300px;
+    }
+}
+
+.carousel-popup {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
     opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
 }
 
-.idle {
-    border-radius: 50px;
-    transform: scale(0);
-    opacity: 0;
-}
-
-.slide-right {
-    border-radius: 0 50px 0 50px;
-    transform: translateX(50px);
-    transition: transform 1s ease, opacity 1s ease;
-    opacity: 0;
-}
-
-.slide-left.animate-on-scroll.visible,
-.slide-right.animate-on-scroll.visible {
-    transform: translateX(0);
+.carousel-popup.visible {
     opacity: 1;
+    pointer-events: auto;
 }
 
-/* Overlay */
-.slide-left::before,
-.idle::before,
-.slide-right::before {
-    content: "";
+.popup-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    text-align: center;
+}
+
+.popup-content img {
+    max-width: 100%;
+    max-height: 70vh;
+    border-radius: 20px;
+}
+
+.popup-content p {
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+.popup-close {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 28px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    background-color: #FDF6F0;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #FDF6F0;
+    z-index: 3;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.popup-close:hover {
+    background-color: #222;
+}
+
+.popup-image-wrapper {
+    position: relative;
+    max-width: 100%;
+    max-height: 70vh;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+}
+
+.popup-image-wrapper img {
+    width: 100%;
+    height: 300px;
+    display: block;
+    border-radius: inherit;
+    object-fit: cover;
+}
+
+.popup-image-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.7);
     z-index: 1;
-    border-radius: inherit;
 }
 
-/* Text above overlay */
-.slide-left h2,
-.slide-right h2,
-.idle h2 {
-    position: relative;
-    z-index: 2;
-}
-
-.journey-content {
-    margin: 0;
-    padding: 0;
+.popup-overlay-text {
+    position: absolute;
+    height: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
     text-align: center;
-    font-family: "Gotham", sans-serif;
-    font-size: 25px;
-    line-height: 1.4;
-    font-weight: normal;
-    word-spacing: 5px;
-    color: #FFFFFF;
+    z-index: 2;
+    pointer-events: none;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+}
+
+#popup-caption-title {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 10px;
 }
 /* End Journey */
 
