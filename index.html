@@ -5,7 +5,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <title>Vincent & Leony - Wedding Invitation</title>
-    <!-- VAP: Splash screen DF Logo -->
     <link rel="preload" href="assets/splash.jpg" as="image" fetchpriority="high" />
     <link rel="preload" as="image" href="assets/aw.jpg">
     <link rel="preload" as="image" href="assets/bowarrow.jpg">
@@ -16,6 +15,13 @@
     <link rel="preload" as="image" href="assets/roca2.jpg">
     <link rel="preload" as="image" href="assets/thereceptionbg.jpg">
     <link rel="preload" as="image" href="assets/tp.jpg">
+    <link rel="preload" as="image" href="assets/introduction.jpg">
+    <link rel="preload" as="image" href="assets/TheReception.jpg">
+    <link rel="preload" as="image" href="assets/TheBride.jpg">
+    <link rel="preload" as="image" href="assets/TheGroom.jpg">
+    <link rel="preload" as="image" href="assets/TheVows.jpg">
+    <link rel="preload" as="image" href="assets/Chapter2.jpg">
+    <link rel="preload" as="image" href="assets/Chapter3.jpg">
     <link rel="preload" as="video" href="assets/see-you.webm" type="video/webm">
     <link rel="stylesheet" href="styles/fonts.css" />
     <link rel="stylesheet" href="styles/animations.css" />
@@ -67,11 +73,10 @@
             <!-- Bible -->
             <div class="page-1-bible-container">
                 <p class="page-1-bible-text">
-                    "Allah memberkati mereka, lalu Allah berfirman kepada mereka: 'Beranakcuculah dan bertambah banyak;
-                    penuhilah bumi dan taklukkanlah itu, berkuasalah atas ikan-ikan di laut dan burung-burung di udara
-                    dan atas segala binatang yang merayap di bumi."
+                    "God blessed them, and God said to them, “Be fruitful, multiply, fill the earth, and subdue it. Rule
+                    the fish of the sea, the birds of the sky, and every creature that crawls on the earth."
                 </p>
-                <h1 class="page-1-bible-section">- Kejadian 1:28 -</h1>
+                <h1 class="page-1-bible-section">- Genesis 1:28 -</h1>
             </div>
 
             <!-- Scroll down indicator wrapper -->
@@ -79,6 +84,19 @@
                 <div class="scroll-down-indicator">
                     <span class="arrow"><i class="fa-solid fa-angles-down"></i></span>
                 </div>
+            </div>
+
+            <!-- Curve Divider -->
+            <div class="curve-divider">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                    <defs>
+                        <linearGradient id="page2Gradient" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#FDF6F0" />
+                            <stop offset="100%" stop-color="#DFE6DA" />
+                        </linearGradient>
+                    </defs>
+                    <path fill="url(#page2Gradient)" d="M0,160 C480,320 960,0 1440,160 L1440,320 L0,320 Z"></path>
+                </svg>
             </div>
         </section>
 
@@ -92,19 +110,19 @@
             <div class="count-down-timer-container">
                 <div class="count-down-time">
                     <h2 id="days">00</h2>
-                    <p>Days</p>
+                    <p class="count-down-time-duration">Days</p>
                 </div>
                 <div class="count-down-time">
                     <h2 id="hours">00</h2>
-                    <p>Hours</p>
+                    <p class="count-down-time-duration">Hours</p>
                 </div>
                 <div class="count-down-time">
                     <h2 id="minutes">00</h2>
-                    <p>Minutes</p>
+                    <p class="count-down-time-duration">Minutes</p>
                 </div>
                 <div class="count-down-time">
                     <h2 id="seconds">00</h2>
-                    <p>Seconds</p>
+                    <p class="count-down-time-duration">Seconds</p>
                 </div>
             </div>
 
@@ -125,7 +143,7 @@
                     <div class="bride-inner-card">
                         <h3 class="bride-name">Leony Anindya Hardi</h3>
                         <p class="bride-family">
-                            Second child of Mr. Noer Zhou & Mrs. Yuli
+                            Second child of Mr. Noer Hardi & Mrs. Siti Yuliani
                         </p>
                         <button class="bride-button">
                             <span class="icon"><i class="fab fa-instagram"></i></span> leony.ah
@@ -265,34 +283,39 @@
                 <h2 class="confirmation-text">Thank you for your confirmation</h2>
                 <h2 class="confirmation-text">See you!</h2>
 
-                <video src="assets/bboy.webm" autoplay muted loop playsinline style="width: 250px; max-width: 100%; height: auto; margin-top: 20px;"></video>
+                <video src="assets/bboy.webm" autoplay muted loop playsinline
+                    style="width: 250px; max-width: 100%; height: auto; margin-top: 20px;"></video>
             </div>
 
             <!-- Our Journey -->
             <h2 class="page-4-journey-section-title">Our Journey</h2>
-            <div class="our-journey-content-container">
-                <div class="journey-first-content-container">
-                    <div class="slide-left animate-on-scroll">
-                        <img src="assets/bowling.jpg" alt="Bowling" />
-                        <h2 class="journey-content"><b>Introduction</b><br>2015</h2>
+            <div class="carousel-container animate-on-scroll">
+                <div class="carousel-track">
+                    <div class="carousel-card" data-caption="Chapter 1: From screens to shared dreams">
+                        <img src="assets/introduction.jpg" alt="Slide 1">
+                        <div class="click-indicator">Click to discover</div>
                     </div>
-                    <p class="journey-content-description animate-on-scroll">KEPO BGT SEH</p>
+                    <div class="carousel-card" data-caption="Chapter 2: Rekindled Flames of Love">
+                        <img src="assets/Chapter2.jpg" alt="Slide 2">
+                        <div class="click-indicator">Click to discover</div>
+                    </div>
+                    <div class="carousel-card" data-caption="Chapter 3: Across Miles, Into Forever">
+                        <img src="assets/Chapter3.jpg" alt="Slide 3">
+                        <div class="click-indicator">Click to discover</div>
+                    </div>
                 </div>
+            </div>
 
-                <div class="journey-second-content-container">
-                    <div class="idle animate-on-scroll">
-                        <img src="assets/aw.jpg" alt="Love is in the air" />
-                        <h2 class="journey-content"><b>Love is in the air</b><br>2016</h2>
+            <div id="carousel-popup" class="carousel-popup hidden">
+                <div class="popup-content">
+                    <div class="popup-image-wrapper">
+                        <img id="popup-image" src="" alt="Popup Image">
+                        <div class="popup-image-overlay"></div>
+                        <div class="popup-overlay-text"></div>
                     </div>
-                    <p class="journey-content-description animate-on-scroll">NAH KAN KEPO</p>
-                </div>
-
-                <div class="journey-last-content-container">
-                    <div class="slide-right animate-on-scroll">
-                        <img src="assets/tp.jpg" alt="Forever After" />
-                        <h2 class="journey-content"><b>Forever After</b><br>2015</h2>
-                    </div>
-                    <h2 class="journey-content-description animate-on-scroll">KEPO MULU</h2>
+                    <h1 id="popup-caption-title"></h1>
+                    <p id="popup-caption"></p>
+                    <span class="popup-close">&times;</span>
                 </div>
             </div>
         </section>

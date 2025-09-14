@@ -1,30 +1,28 @@
 .page-1 {
-    position: relative; /* Make it a positioning context for the overlay */
+    position: relative;
     background: url('../assets/splash.jpg') no-repeat center center/cover;
     background-color: #fefefe;
     display: flex;
     flex-direction: column;
-    align-items: center;   /* center horizontally */
+    align-items: center;
     justify-content: center;
-    padding-top: 40px;  /* add some top padding if needed */
-    height: 100vh;  /* full viewport height to fill the screen */
+    padding-top: 40px;
+    height: 100vh;
 }
 
-/* Add overlay using ::before */
 .page-1::before {
     content: "";
     position: absolute;
-    inset: 0; /* shorthand for top:0; right:0; bottom:0; left:0; */
-    background-color: rgba(0, 0, 0, 0.5); /* black with 50% opacity */
-    pointer-events: none; /* so clicks pass through overlay */
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
     z-index: 1;
 }
 
-/* Make sure content inside page-1 is above the overlay */
 .page-1 > * {
     position: relative;
     z-index: 2;
-    color: white; /* just in case text is not white */
+    color: white;
 }
 
 .page-1-couple-name {
@@ -39,7 +37,7 @@
 
 .page-1-bible-container {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     text-align: center;
     max-width: 80%;
     margin: 0 auto;
@@ -48,7 +46,8 @@
     gap: 30px;
 }
 
-.page-1-bible-text, .page-1-bible-section {
+.page-1-bible-text,
+.page-1-bible-section {
     font-family: "Poppins", sans-serif;
     font-size: 12px;
     font-weight: normal;
@@ -67,7 +66,7 @@
 }
 
 .scroll-indicator-wrapper {
-    height: 40px; /* or however tall your indicator is */
+    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -94,4 +93,28 @@
     font-size: 24px;
     display: block;
     margin-top: 5px;
+}
+
+.curve-divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+    overflow: hidden;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+  
+.curve-divider svg {
+    display: block;
+    width: 100%;
+    height: 120px;
+}
+
+.curve-divider.animate-in {
+    opacity: 1;
+    transform: translateY(0);
 }

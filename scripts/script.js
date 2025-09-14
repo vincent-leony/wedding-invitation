@@ -22,6 +22,12 @@ openInvitationButton.addEventListener('click', () => {
         document.querySelector('.page-1-couple-name').classList.add('animate');
         document.querySelector('.page-1-bible-container').classList.add('animate');
 
+        const curveDivider = document.querySelector('.curve-divider');
+        // Trigger its animation
+        if (curveDivider) {
+            curveDivider.classList.add('animate-in');
+        }
+
         // Show music player
         musicPlayer.style.display = 'block';
 
