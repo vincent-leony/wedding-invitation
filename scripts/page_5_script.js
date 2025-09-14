@@ -156,7 +156,7 @@ function displayWishesAndPrayers(wishes) {
         const item = document.createElement('div');
         item.classList.add('wish-list-item');
         item.innerHTML = `
-            <h4 style="margin-bottom: 5px; font-size: 14px; padding-top: 5px;">${wish.attendeeName}</h4>
+            <h4 style="margin-bottom: 5px; font-size: 14px; padding-top: 5px; white-space: normal; word-wrap: break-word; word-break: break-word;">${wish.attendeeName}</h4>
             <p style="margin: 0 0 10px; font-size: 12px;">${wish.wishesAndPrayers}</p>
             <hr style="border: none; border-top: 1px solid #ccc; margin-bottom: 5px;" />
             <span style="font-size: 11px; color: gray;">${timeAgo(wish.createdAt)}</span>
