@@ -39,3 +39,13 @@
 #music-player.playing {
     animation: pulse 1s infinite;
 }
+
+@media (prefers-color-scheme: dark) {
+    #music-player {
+        background: rgb(26, 0, 73);
+    }
+    
+    #musicToggle {
+        color: white;
+    }
+}
