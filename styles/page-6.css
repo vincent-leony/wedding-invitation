@@ -153,3 +153,62 @@
 .page-6-content-gift-delivery-confirm-button.animate {
     animation: zoomIn 1s ease-out forwards;
 }
+
+@media (prefers-color-scheme: dark) {
+    .page-6 {
+        background: black;
+    }
+    
+    .page-6-title {
+        color: white;
+    }
+    
+    .page-6-header {
+        color: #FFFFFF;
+    }
+    
+    .page-6-iban-container {
+        background-color: #222;
+        border: 1px solid #ccc;
+    }
+    
+    #iban {
+        color: #FFFFFF;
+    }
+    
+    .iban-copy-button {
+        fill: white;
+        color: white;
+        background-color: black;
+        border: solid 2px white;
+    }
+    
+    .page-6-content-gift-delivery-title {
+        color: #FFFFFF;
+    }
+    
+    .page-6-content-gift-delivery-address {
+        color: #FFFFFF;
+    }
+    
+    .page-6-content-gift-delivery-receiver-name {
+        color: #FFFFFF;
+    }
+    
+    .page-6-content-gift-delivery-receiver-number {
+        color: #FFFFFF;
+    }
+    
+    .page-6-content-gift-delivery-confirm-button {
+        background-color: #FFFFFF;
+        fill: #000000;
+        color: #000000;
+    }
+    
+    .page-6-content-gift-delivery-confirm-button:hover,
+    .page-6-content-gift-delivery-confirm-button:focus {
+        background-color: #D0C6C4;
+        color: #333425;
+        border-color: #333425;
+    }
+}

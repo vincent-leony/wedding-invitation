@@ -318,3 +318,93 @@
     transition-delay: 1.1s;
 }
 /* End the vows and reception */
+
+@media (prefers-color-scheme: dark) {
+    .page-3 {
+        background: #fff3e0;
+    }
+    
+    .page-3-title {
+        color: #000000;
+    }
+    
+    .the-reception-content-container {
+        background: linear-gradient(to bottom, #fff3e0 0%, #333 50%, #000 100%);
+    }
+    
+    .the-vows-body-container {
+        background: white;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .the-reception-body-container {
+        background: black;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .the-vows-body-title {
+        color: #000000;
+    }
+    
+    .the-reception-body-title {
+        color: white;
+    }
+    
+    .the-vows-date {
+        color: #000000;
+    }
+    
+    .the-reception-date {
+        color: white;
+    }
+    
+    .the-vows-location-name {
+        color: #000000;
+    }
+    
+    .the-reception-location-name {
+        color: white;
+    }
+    
+    .the-vows-location-address {
+        color: #000000;
+    }
+    
+    .the-reception-location-address {
+        color: white;
+    }
+    
+    .the-vows-time {
+        color: #000000;
+    }
+    
+    .the-reception-time {
+        color: white;
+    }
+    
+    .the-vows-location-button {
+        background-color: #000000;
+        fill: #FFFFFF;
+        color: #FFFFFF;
+    }
+    
+    .the-vows-location-button:hover,
+    .the-vows-location-button:focus {
+        background-color: white;
+        color: black;
+        border-color: black;
+    }
+    
+    .the-reception-location-button {
+        background-color: white;
+        fill: black;
+        color: black;
+    }
+    
+    .the-reception-location-button:hover,
+    .the-reception-location-button:focus {
+        background-color: black;
+        color: white;
+        border-color: white;
+    }
+}

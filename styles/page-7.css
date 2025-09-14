@@ -118,3 +118,41 @@
 .staggered-grid img.animate {
     animation: zoomIn 1s ease-out forwards;
 }
+
+@media (prefers-color-scheme: dark) {
+    .page-7 {
+        background: #fff3e0;
+    }
+    
+    .page-7-title {
+        color: #000000;
+    }
+    
+    .page-7-subtitle {
+        color: black;
+    }
+    
+    .staggered-grid img {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Lightbox overlay */
+    #lightboxOverlay {
+        background: rgba(0, 0, 0, 0.9);
+    }
+    
+    /* The enlarged image */
+    #lightboxOverlay img {
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.7);
+    }
+    
+    /* Close button */
+    #lightboxClose {
+        color: white;
+        background: rgba(0, 0, 0, 0.5);
+    }
+    
+    #lightboxClose:hover {
+        background: rgba(255, 255, 255, 0.3);
+    }
+}

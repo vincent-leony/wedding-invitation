@@ -255,7 +255,6 @@ textarea::-webkit-scrollbar-thumb {
     border-radius: 4px;
 }
 
-
 .wish-and-pray-list::-webkit-scrollbar-thumb:hover,
 textarea::-webkit-scrollbar-thumb:hover {
     background: #555;
@@ -271,4 +270,85 @@ textarea::-webkit-scrollbar-thumb:hover {
 .wish-and-pray-submit-button.animate,
 .wish-and-pray-list-container.animate {
     animation: zoomIn 1s ease-out forwards;
+}
+
+@media (prefers-color-scheme: dark) {
+    .page-5 {
+        background: #fff3e0;
+    }
+    
+    /* Wish and Pray */
+    .page-5-wishes-and-prayers-section-title {
+        color: #000000;
+    }
+    
+    .wish-and-pray-form {
+        color: black;
+        color: white;
+    }
+    
+    .wish-and-pray-guest-name-input-label,
+    .wish-and-pray-data-input-label {
+        color: black;
+    }
+    
+    .wish-and-pray-input-field {
+        border: 1px solid #666;
+    }
+    
+    #wish-and-pray-text-area {
+        border: 1px solid #666;
+    }
+    
+    .wish-and-pray-submit-button {
+        background-color: black;
+        color: white;
+    }
+    
+    .wish-and-pray-list-container {
+        background: black;
+        color: white;
+    }
+    
+    .wish-and-pray-list-section-header {
+        color: black;
+    }
+    
+    .wish-and-pray-feedback-message {
+        color: red;
+    }
+    
+    .wish-and-pray-feedback-message.success {
+        color: green;
+    }
+    
+    .wish-and-pray-loading-spinner {
+        border: 2px solid white;
+    }
+    
+    .wish-and-pray-total-data {
+        background: #f7981c;
+        color: white;
+    }
+    
+    .wish-and-pray-list div {
+        color: black;
+        background-color: white;
+    }
+    
+    .wish-and-pray-list::-webkit-scrollbar-track,
+    textarea::-webkit-scrollbar-track {
+        background: #F1F1F1;
+    }
+    
+    .wish-and-pray-list::-webkit-scrollbar-thumb,
+    textarea::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+    
+    
+    .wish-and-pray-list::-webkit-scrollbar-thumb:hover,
+    textarea::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
 }

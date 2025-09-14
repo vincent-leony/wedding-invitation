@@ -448,3 +448,124 @@
 .page-4-journey-section-title.animate {
     animation: zoomIn 1s ease-out forwards;
 }
+
+@media (prefers-color-scheme: dark) {
+    .page-4 {
+        background: black;
+    }
+    
+    .page-4-title,
+    .page-4-journey-section-title {
+        color: white;
+    }
+    
+    .attendance-confirmation-description {
+        color: #FFFFFF;
+    }
+    
+    .attendance-confirmation-form {
+        color: white;
+    }
+    
+    .rspv-guest-name-input,
+    .rspv-total-guests-input {
+        background: #ffffff;
+        color: #000;
+        border: 1px solid #666;
+    }
+    
+    .rspv-attendance-confirmation-selector {
+        background: #ffffff;
+        color: #000;
+        border: 1px solid #666;
+    }
+    
+    .rspv-error-message,
+    .rspv-attendance-confirmation-error-message {
+        color: red;
+        font-size: 0.85rem;
+        display: none;
+    }
+    
+    .rspv-button-submit {
+        fill: black;
+        color: black;
+        background-color: white;
+        border: solid 2px white;
+    }
+    
+    .rspv-button-submit:active,
+    .rspv-button-submit:hover {
+        color: white;
+        background: black;
+    }
+    
+    /* End Attendance Form */
+    
+    /* QR Code */
+    .confirmation-text {
+        color: #FFFFFF;
+    }
+    
+    #loading-blocker {
+        background: rgba(0, 0, 0, 0);
+    }
+    
+    #loading-indicator {
+        color: white;
+    }
+    
+    .spinner {
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-left-color: #000000;
+    }
+
+    
+    .carousel-card {
+        box-shadow: 0 5px 25px rgba(255, 255, 255, 0.15);
+    }
+    
+    .click-indicator {
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
+    }
+    
+    .carousel-card:hover .click-indicator {
+        background: rgba(255, 255, 255, 0.25);
+    }
+    
+    .carousel-popup {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+    
+    .popup-content p {
+        color: white;
+    }
+    
+    .popup-close {
+        color: black;
+        background-color: #FDF6F0;
+        border: 2px solid #FDF6F0;
+    }
+    
+    .popup-close:hover {
+        background-color: #222;
+    }
+    
+    .popup-image-wrapper {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+    }
+    
+    .popup-image-overlay {
+        background: rgba(0, 0, 0, 0.7);
+    }
+    
+    .popup-overlay-text {
+        color: white;
+    }
+    
+    #popup-caption-title {
+        color: white;
+    }
+}

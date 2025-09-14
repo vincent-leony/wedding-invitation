@@ -6,7 +6,7 @@
     background-position: center;
     display: flex;
     flex-direction: column;
-    align-items: center;   /* center horizontally */
+    align-items: center;
     justify-content: center;
     transition: background-image 1s ease-in-out;
     z-index: 0;
@@ -22,11 +22,10 @@
     z-index: 1;
 }
 
-/* Make sure content inside page-1 is above the overlay */
 .page-8 > * {
     position: relative;
     z-index: 2;
-    color: white; /* just in case text is not white */
+    color: white;
 }
 
 .page-8-title {
@@ -69,4 +68,30 @@
 .page-8-subtitle-text.animate,
 .page-8-date-section.animate {
     animation: zoomIn 1s ease-out 0.2s forwards;
+}
+
+@media (prefers-color-scheme: dark) {
+    .page-8 {
+        background-color: #000;
+    }
+    
+    .page-8 .overlay {
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+    
+    .page-8 > * {
+        color: white;
+    }
+    
+    .page-8-title {
+        color: #FFFFFF;
+    }
+    
+    .page-8-subtitle-container {
+        color: white;
+    }
+    
+    .page-8-subtitle-text, .page-8-date-section {
+        color: white;
+    }
 }

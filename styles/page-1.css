@@ -19,7 +19,7 @@
     z-index: 1;
 }
 
-.page-1 > * {
+.page-1>* {
     position: relative;
     z-index: 2;
     color: white;
@@ -107,7 +107,7 @@
     transform: translateY(50px);
     transition: opacity 1s ease-out, transform 1s ease-out;
 }
-  
+
 .curve-divider svg {
     display: block;
     width: 100%;
@@ -117,4 +117,35 @@
 .curve-divider.animate-in {
     opacity: 1;
     transform: translateY(0);
+}
+
+@media (prefers-color-scheme: dark) {
+    .page-1 {
+        background-color: #fefefe;
+    }
+
+    .page-1::before {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .page-1>* {
+        color: white;
+    }
+
+    .page-1-couple-name {
+        color: #FFFFFF;
+    }
+
+    .page-1-bible-container {
+        color: white;
+    }
+
+    .page-1-bible-text,
+    .page-1-bible-section {
+        color: white;
+    }
+
+    .scroll-down-indicator {
+        color: white;
+    }
 }
