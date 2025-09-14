@@ -106,9 +106,7 @@
     display: none;
     flex-direction: column;
     margin-top: 15px;
-    background: black;
     border-radius: 15px;
-    color: white;
     align-items: center;
     background: transparent;
     margin-bottom: 30px;
@@ -302,11 +300,6 @@ textarea::-webkit-scrollbar-thumb:hover {
     
     .wish-and-pray-submit-button {
         background-color: black;
-        color: white;
-    }
-    
-    .wish-and-pray-list-container {
-        background: black;
         color: white;
     }
     
