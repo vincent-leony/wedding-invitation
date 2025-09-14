@@ -1,5 +1,5 @@
 .page-2 {
-    background: linear-gradient(to bottom, #DFE6DA, #FDF6F0);
+    background: linear-gradient(to bottom, #DFE6DA, #FDF6F0 80%, #fff3e0); 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -411,7 +411,7 @@
 
 @media (prefers-color-scheme: dark) {
     .page-2 {
-        background: linear-gradient(to bottom, #DFE6DA, #FDF6F0);
+        background: linear-gradient(to bottom, #DFE6DA, #FDF6F0 80%, #fff3e0); 
     }
 
     .page-2-title {
