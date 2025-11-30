@@ -28,13 +28,16 @@ function setupZoomInAnimation() {
 // RSPV Form
 const form = document.getElementById('rspv-form');
 const guestNameInput = form.querySelector('#rspv-guest-name');
-const totalGuestsInput = form.querySelector('#total-guests');
+// const totalGuestsInput = form.querySelector('#total-guests');
 const attendanceSelect = form.querySelector('#attendance-confirmation');
 const totalGuestsLabel = form.querySelector('.total-guests-label');
 const totalGuestsContainer = document.querySelector('.rspv-total-guests-container');
-const totalGuestsInputContainer = totalGuestsInput.parentElement;
+const totalGuestsSelect = form.querySelector('#total-guests');
+const totalGuestsInputContainer = totalGuestsSelect.parentElement;
+// const totalGuestsInputContainer = totalGuestsInput.parentElement;
 const rspvSubmitButton = document.getElementById('rspv-submit-button');
-const rspvFormInputs = [guestNameInput, totalGuestsInput];
+const rspvFormInputs = [guestNameInput];
+// const rspvFormInputs = [guestNameInput, totalGuestsInput];
 
 // Toggle visibility of total guests based on attendance value
 function toggleTotalGuestsVisibility() {
@@ -43,9 +46,12 @@ function toggleTotalGuestsVisibility() {
         totalGuestsContainer.classList.add('show');
     } else {
         totalGuestsContainer.classList.remove('show');
-        totalGuestsInput.classList.remove('error');
-        totalGuestsInput.nextElementSibling.style.display = 'none';
-        totalGuestsInput.value = 1;
+        // totalGuestsInput.classList.remove('error');
+        // totalGuestsInput.nextElementSibling.style.display = 'none';
+        // totalGuestsInput.value = 1;
+        // totalGuestsSelect.classList.remove('error');
+        // totalGuestsSelect.nextElementSibling.style.display = 'none';
+        totalGuestsSelect.value = 1;
     }
 }
 
@@ -64,12 +70,14 @@ rspvSubmitButton.addEventListener('click', (e) => {
         guestNameError.style.display = 'none';
     }
 
-    const totalGuestsError = totalGuestsInput.nextElementSibling;
-    const numberValue = Number(totalGuestsInput.value);
+    // const totalGuestsError = totalGuestsInput.nextElementSibling;
+    // const numberValue = Number(totalGuestsInput.value);
+    const totalGuestsError = totalGuestsSelect.nextElementSibling;
+    const numberValue = Number(totalGuestsSelect.value);
     const isPresent = attendanceSelect.value === 'Present';
     let totalAttendees = 0;
     if (isPresent && (!Number.isInteger(numberValue) || numberValue <= 0)) {
-        totalGuestsInput.classList.add('error');
+        // totalGuestsInput.classList.add('error');
         totalGuestsError.style.display = 'block';
         hasError = true;
     } else if (attendanceSelect.value === 'Select') {
@@ -81,8 +89,9 @@ rspvSubmitButton.addEventListener('click', (e) => {
         if (attendanceSelect.value === 'Absent') {
             isAbsent = true;
         } else {
-            totalAttendees = totalGuestsInput.value;
-            totalGuestsInput.classList.remove('error');
+            totalAttendees = totalGuestsSelect.value;
+            // totalAttendees = totalGuestsInput.value;
+            // totalGuestsInput.classList.remove('error');
             totalGuestsError.style.display = 'none';
         }
     }
@@ -132,7 +141,8 @@ rspvSubmitButton.addEventListener('click', (e) => {
                 document.getElementById('loading-blocker').style.display = 'none';
                 guestNameInput.value = "";
                 attendanceSelect.value = "Select";
-                totalGuestsInput.value = "1";
+                // totalGuestsInput.value = "1";
+                totalGuestsSelect.value = "1";
                 toggleTotalGuestsVisibility();
             }
         })
@@ -222,7 +232,7 @@ document.querySelectorAll('.carousel-card').forEach((card, index) => {
         if (index == 0) {
             popupTitle = "2017";
             description = `
-            2017 was the day our paths crossed with the most unexpected intentions, 
+            2017 was the year our paths crossed with the most unexpected intentions, 
             a single-click that changed everything.
             <br><br>
             Meeting each other came effortlessly, but holding on proved to be the 

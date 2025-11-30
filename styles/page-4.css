@@ -126,6 +126,25 @@
     opacity: 1;
 }
 
+.rspv-total-guests-input-selector {
+    background: #ffffff;
+    color: #000;
+    margin-bottom: 10px;
+    font-size: 13px;
+    font-weight: normal;
+    margin-top: 4px;
+    box-sizing: border-box;
+    display: block;
+    text-transform: none;
+    width: 100%;
+    border: 1px solid #666;
+    border-radius: 3px;
+    padding: .5rem 1rem;
+    transition: all .3s;
+    line-height: 1.5;
+    margin: 0;
+}
+
 .rspv-button-submit {
     font-family: "Poppins", sans-serif;
     font-weight: normal;
@@ -469,6 +488,12 @@
     
     .rspv-guest-name-input,
     .rspv-total-guests-input {
+        background: #ffffff;
+        color: #000;
+        border: 1px solid #666;
+    }
+    
+    .rspv-total-guests-input-selector {
         background: #ffffff;
         color: #000;
         border: 1px solid #666;
