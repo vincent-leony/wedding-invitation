@@ -66,7 +66,7 @@ function wheelHandler(e) {
 
 // Prewed video
 function loadPrewedVideo() {
-    const prewedVideo = document.querySelector('.rewed-video');
+    const prewedVideo = document.querySelector('.prewed-video');
     if (!prewedVideo) return;
 
     const observer = new IntersectionObserver((entries, observer) => {

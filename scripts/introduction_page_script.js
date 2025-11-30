@@ -23,6 +23,6 @@ function setGuestName() {
         guestElements.forEach(element => {
             element.textContent = guestName;
         });
-        // window.guestNameValue = guestName;
+        window.guestNameValue = guestName;
     }
 }
