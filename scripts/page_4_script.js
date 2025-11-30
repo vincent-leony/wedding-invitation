@@ -232,7 +232,7 @@ document.querySelectorAll('.carousel-card').forEach((card, index) => {
         if (index == 0) {
             popupTitle = "2017";
             description = `
-            2017 was the day our paths crossed with the most unexpected intentions, 
+            2017 was the year our paths crossed with the most unexpected intentions, 
             a single-click that changed everything.
             <br><br>
             Meeting each other came effortlessly, but holding on proved to be the 
