@@ -122,6 +122,7 @@ body.unlocked::-webkit-scrollbar {
 
 .intro-heading {
     align-self: start;
+    margin-top: 50px;
 }
 
 .intro-title,
