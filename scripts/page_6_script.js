@@ -1,6 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
+    validatePage6Visibility();
     setupPage6ZoomInAnimation();
 });
+
+function validatePage6Visibility() {
+    const specialGuests = ["john", "maria", "vip01", "guest88"];
+    const currGuestName = window.guestNameValue;
+    if (
+        currGuestName &&
+        specialGuests.includes(currGuestName.toLowerCase())
+    ) {
+        const page3 = document.querySelector(".page-3");
+        if (page3) page3.style.display = "none";
+    }
+}
 
 function setupPage6ZoomInAnimation() {
     const observer = new IntersectionObserver((entries) => {
