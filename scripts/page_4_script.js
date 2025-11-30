@@ -72,13 +72,13 @@ rspvSubmitButton.addEventListener('click', (e) => {
 
     // const totalGuestsError = totalGuestsInput.nextElementSibling;
     // const numberValue = Number(totalGuestsInput.value);
-    const totalGuestsError = totalGuestsSelect.nextElementSibling;
+    // const totalGuestsError = totalGuestsSelect.nextElementSibling;
     const numberValue = Number(totalGuestsSelect.value);
     const isPresent = attendanceSelect.value === 'Present';
     let totalAttendees = 0;
     if (isPresent && (!Number.isInteger(numberValue) || numberValue <= 0)) {
         // totalGuestsInput.classList.add('error');
-        totalGuestsError.style.display = 'block';
+        // totalGuestsError.style.display = 'block';
         hasError = true;
     } else if (attendanceSelect.value === 'Select') {
         const attendanceSelectError = document.querySelector('.rspv-attendance-confirmation-error-message');
@@ -92,10 +92,11 @@ rspvSubmitButton.addEventListener('click', (e) => {
             totalAttendees = totalGuestsSelect.value;
             // totalAttendees = totalGuestsInput.value;
             // totalGuestsInput.classList.remove('error');
-            totalGuestsError.style.display = 'none';
+            // totalGuestsError.style.display = 'none';
         }
     }
 
+    // console.log(hasError);
     if (hasError) return;
 
     // Show loading indicator
