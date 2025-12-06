@@ -64,7 +64,7 @@
 
 @media (max-width: 480px) {
     .staggered-grid {
-        column-count: 1;
+        column-count: 2;
     }
 }
 
