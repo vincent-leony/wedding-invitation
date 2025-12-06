@@ -11,7 +11,7 @@ function showLoading() {
     setTimeout(() => {
         loader.style.display = 'none';
         introContent.style.display = 'contents'; // or "block" if contents doesn't suit your layout
-    }, 3000); // 3s delay
+    }, 5000); // 5s delay
 }
 
 function setGuestName() {
