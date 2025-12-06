@@ -15,7 +15,7 @@
 #musicToggle {
     background: none;
     border: none;
-    color: black;
+    color: #FDF6F0;
     font-size: 20px;
     cursor: pointer;
     display: flex;
@@ -47,6 +47,6 @@
     }
     
     #musicToggle {
-        color: black;
+        color: #FDF6F0;
     }
 }
