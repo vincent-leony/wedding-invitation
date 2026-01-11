@@ -21,7 +21,7 @@ function setupBackgroundOverlay() {
         'url("assets/00246.jpg")',
         'url("assets/00254.jpg")',
         'url("assets/00351.jpg")',
-        'url("assets/00377.jpg")',
+        // 'url("assets/00377.jpg")',
         'url("assets/00427.jpg")',
         'url("assets/00455.jpg")',
         'url("assets/00472.jpg")',
