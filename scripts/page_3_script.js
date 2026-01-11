@@ -1,9 +1,24 @@
 document.addEventListener("DOMContentLoaded", function () {
     setupTitleAnimation();
+    validateVowsTimeVisibility();
     setupTheVowsAnimation();
     setupTheReceptionAnimation();
     setupSeeLocationButtonListener();
 });
+
+function validateVowsTimeVisibility() {
+    const specialGuests = ["john", "maria", "vip01", "guest88"];
+    const currGuestName = window.guestNameValue;
+    const vowsTime = document.querySelector(".the-vows-time");
+    if (
+        currGuestName &&
+        specialGuests.includes(currGuestName.toLowerCase())
+    ) {
+        vowsTime.style.display = "visible";
+    } else {
+        vowsTime.style.display = "none";
+    }
+}
 
 function setupTitleAnimation() {
     const observer = new IntersectionObserver((entries) => {
