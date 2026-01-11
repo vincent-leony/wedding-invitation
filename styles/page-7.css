@@ -44,7 +44,24 @@
     padding: 1rem;
 }
 
-.staggered-grid img {
+.grid-item {
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    margin-bottom: 1rem;
+}
+
+.grid-item img {
+    width: 100%;
+    margin-bottom: 1rem;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: scale(0.9);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* .staggered-grid img {
     width: 100%;
     margin-bottom: 1rem;
     display: block;
@@ -55,7 +72,7 @@
     opacity: 0;
     transform: scale(0.9);
     transition: transform 0.5s ease, opacity 0.5s ease;
-}
+} */
 
 @media (max-width: 768px) {
     .staggered-grid {
