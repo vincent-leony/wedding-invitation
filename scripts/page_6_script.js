@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function validatePage6Visibility() {
-    const specialGuests = ["john", "maria", "vip01", "guest88"];
+    const specialGuests = [""];
     const currGuestName = window.guestNameValue;
     if (
         currGuestName &&
