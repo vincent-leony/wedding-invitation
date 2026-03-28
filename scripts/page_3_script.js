@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function validateVowsTimeVisibility() {
-    const specialGuests = ["john", "maria", "vip01", "guest88"];
+    const specialGuests = [""];
     const currGuestName = window.guestNameValue;
     const vowsTime = document.querySelector(".the-vows-time");
     if (
