@@ -131,13 +131,13 @@ function handleSendWishes() {
             const data = await response.json();
             return data;
         })
-        .then(response => {
+        .then(data => {
             feedback.textContent = 'Wish sent successfully!';
             feedback.classList.add('success');
             document.querySelector('#wish-and-pray-guest-name').value = '';
             document.querySelector('#wish-and-pray-text-area').value = '';
 
-            displayWishesAndPrayers(response.data);
+            displayWishesAndPrayers(data);
             // fetchWishesAndDisplay();
         })
         .catch(() => {
