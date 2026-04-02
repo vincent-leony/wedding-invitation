@@ -54,10 +54,14 @@ function setupStaggeredZoomInAnimation() {
 }
 
 function fetchWishesAndDisplay() {
-    axios.get('https://teal-creponne-1bac93.netlify.app/.netlify/functions/get_wishes_and_prayers')
-        .then(response => {
-            cachedWishes = response.data;
-            // displayWishesAndPrayers(response.data);
+    fetch('https://teal-creponne-1bac93.netlify.app/.netlify/functions/get_wishes_and_prayers')
+        .then(async (response) => {
+            if (!response.ok) throw new Error('Failed to fetch');
+            const data = await response.json();
+            return data;
+        })
+        .then(data => {
+            cachedWishes = data;
         })
         .catch(error => {
             console.error('Error fetching wishes:', error);
@@ -112,9 +116,20 @@ function handleSendWishes() {
     button.classList.add('wish-and-pray-loading');
     button.disabled = true;
 
-    axios.post('https://teal-creponne-1bac93.netlify.app/.netlify/functions/submit_wishes_and_prayers', {
-            attendeeName: name,
-            wishesAndPrayers: message
+    fetch('https://teal-creponne-1bac93.netlify.app/.netlify/functions/submit_wishes_and_prayers', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                attendeeName: name,
+                wishesAndPrayers: message
+            })
+        })
+        .then(async (response) => {
+            if (!response.ok) throw new Error('Failed to send');
+            const data = await response.json();
+            return data;
         })
         .then(response => {
             feedback.textContent = 'Wish sent successfully!';

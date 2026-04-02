@@ -112,11 +112,23 @@ rspvSubmitButton.addEventListener('click', (e) => {
     const description = document.querySelector('.attendance-confirmation-description');
 
     // API Call
-    axios.post('https://teal-creponne-1bac93.netlify.app/.netlify/functions/attendance_confirmation', {
+    fetch('https://teal-creponne-1bac93.netlify.app/.netlify/functions/attendance_confirmation', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
             attendeeName: guestNameInput.value,
             confirmation: attendanceSelect.value,
             totalAttendees: numberValue
-        }).then(response => {
+        })
+    })
+    .then(async (response) => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        const data = await response.json();
+        return data;
+    })
+    .then(data => {
             // Fade out form and description
             if (!isAbsent) {
                 formContainer.classList.add('fade-out');
